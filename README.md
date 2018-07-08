@@ -1,5 +1,5 @@
 # mdebug
-mdebug make mobile debug so easy and quickly
+Mdebug makes mobile web development easier
 
 ## Installation
 
