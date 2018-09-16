@@ -1,9 +1,17 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
 .mdebug {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  min-height: 85%;
+  min-height: 300px;
   z-index: 10002;
   font-size: 13px;
 }

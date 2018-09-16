@@ -5,9 +5,12 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-json-tree": "^0.11.0",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.0-next.a671462c",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "vconsole": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,5 +29,8 @@
       "not op_mini all",
       "ie 11"
     ]
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.5"
   }
 }

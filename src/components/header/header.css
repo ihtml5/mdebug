@@ -7,9 +7,25 @@
     list-style: none;
     border: 1px solid rgb(40, 131, 233);
     margin: 0 1px;
+    padding: 0;
 }
 .mdebug-header li {
+    display: flex;
     flex: 1;
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
     border-right: 1px solid rgb(40, 131, 233);
+}
+.mdebug-header li:last-child {
+    border-right: none;
+}
+.mdebug-selectedTab {
+    background-color: rgb(40, 131, 233);
+    color: #fff;
+    font-weight: 600;
+}
+#medebug-content ul {
+    background-color: #fff!important;
 }
