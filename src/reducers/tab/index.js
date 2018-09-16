@@ -1,4 +1,4 @@
-import { TABS } from '../../constants';
+import { TABS } from '@/constants';
 
 const SELECTTAB = 'MDEBUG/SELECTTAB';
 const GETSOURCE = 'MDEBUG/GETSOURCE';
@@ -16,6 +16,7 @@ export const getSource = data => ({
 const doSelectTab = (state = {
     curTab: {
         currentIndex: 0,
+        id: 'mdebug-application',
     },
     tabs: TABS,
 }, action = {}) => {

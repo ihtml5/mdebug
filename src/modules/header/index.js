@@ -1,6 +1,6 @@
-import Header from '../../components/header'
+import Header from '@/components/header'
 import { connect } from 'react-redux'
-import { selectTab } from '../../reducers/tab';
+import { selectTab } from '@/reducers/tab';
 
 const mapStateToProps = (state = {} , ownProps) => {
   console.warn('state::::', state, ownProps)

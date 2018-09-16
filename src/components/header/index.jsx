@@ -1,51 +1,18 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import './header.css';
 
-class Header extends Component {
+class Header extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
 			showDebug: false,
 			currentIndex: 0,
 		};
-		this._times = 1;
-	}
-	componentDidMount() {
-		const { showDebug } = this.state;
-		window.addEventListener('touchend', function(e) {
-			var nowTime = new Date();
-			var touches = e.touches.length;
-
-			if (this._times === 1) {
-				this._times++;
-				this._lastTapTime = nowTime;
-
-				setTimeout(function() {
-					this._times = 1;
-				}, 1000);
-				return;
-			}
-
-			if (touches === 2 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
-				if (!showDebug) {
-					this.setState({
-						showDebug: true
-					});
-				} else {
-					this.setState({
-						showDebug: false
-					});
-				}
-
-				this._times = 1;
-			}
-		});
 	}
 	render() {
 		const { tabs, onSelectTab, curTab = {} } = this.props;
 		const { showDebug } = this.state;
 		const { currentIndex } = curTab;
-		console.warn('currentIndex:::', currentIndex, curTab);
 		return (
 			<Fragment>
 				<ul className={'mdebug-header'}>
