@@ -27,4 +27,6 @@ yarn add mdebug --save
 1. [eruda](https://github.com/liriliri/eruda)
 2. [vConsole](https://github.com/Tencent/vConsole)
 3. [react-json-tree](https://github.com/alexkuz/react-json-tree)
+4. [基于React的移动端调试解决方案](https://github.com/abell123456/mdebug)
+5. [a useful debugger for mobile](https://github.com/ghking1/mdebug)
 
