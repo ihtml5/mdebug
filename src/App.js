@@ -14,6 +14,7 @@ class App extends Component {
 		this._lastTapTime = null;
   }
   componentDidMount() {
+		// 三指连击唤起mdebug
 		const context = this;
 		window.addEventListener('touchend', e => {
 			const { showDebug } = context.state;
@@ -27,7 +28,6 @@ class App extends Component {
 				}, 1000);
 				return;
 			}
-			alert(`${touches}-${this._times}-${nowTime - this._lastTapTime}`);
 			if (touches === 2 && context._times === 2 && nowTime - context._lastTapTime < 1000) {
 				context._times = 1;
 				context._lastTapTime = new Date();
