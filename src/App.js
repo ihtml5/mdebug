@@ -26,6 +26,7 @@ class App extends Component {
 				}, 1000);
 				return;
 			}
+			alert(`${touches}-${this._times}-${nowTime - this._lastTapTime}`);
 			if (touches === 2 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
 				if (!showDebug) {
 					this.setState({
