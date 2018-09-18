@@ -8,15 +8,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDebug: true,
+      showDebug: false,
     };
 		this._times = 1;
 		this._lastTapTime = null;
   }
   componentDidMount() {
-		const { showDebug } = this.state;
 		window.addEventListener('touchend', e => {
-			var nowTime = new Date();
+			const { showDebug } = this.state;
+			var nowTime = new Date().getTime();
 			var touches = e.touches.length;
 			if (this._times === 1) {
 				this._times++;
@@ -26,8 +26,7 @@ class App extends Component {
 				}, 1000);
 				return;
 			}
-			console.warn('touches::::', touches, this._times, nowTime - this._lastTapTime);
-			if (touches === 2 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
+			if (touches === 0 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
 				if (!showDebug) {
 					this.setState({
 						showDebug: true
@@ -38,11 +37,12 @@ class App extends Component {
 					});
 				}
 				this._times = 1;
+				this._lastTapTime = new Date().getTime();
 			}
 		});
 	}
   render() {
-    const { showDebug } = this.state;
+		const { showDebug } = this.state;
     return (
       <div className={'mdebug'} style={{
         display: showDebug ? 'block' : 'none',
