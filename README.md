@@ -29,4 +29,5 @@ yarn add mdebug --save
 3. [react-json-tree](https://github.com/alexkuz/react-json-tree)
 4. [基于React的移动端调试解决方案](https://github.com/abell123456/mdebug)
 5. [a useful debugger for mobile](https://github.com/ghking1/mdebug)
+6. [autoDevTools](https://github.com/chokcoco/autoDevTools)
 
