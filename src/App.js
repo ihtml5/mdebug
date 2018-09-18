@@ -14,20 +14,22 @@ class App extends Component {
 		this._lastTapTime = null;
   }
   componentDidMount() {
+		const context = this;
 		window.addEventListener('touchend', e => {
-			const { showDebug } = this.state;
-			var nowTime = new Date().getTime();
+			const { showDebug } = context.state;
+			var nowTime = new Date();
 			var touches = e.touches.length;
-			if (this._times === 1) {
-				this._times++;
-				this._lastTapTime = nowTime;
-				setTimeout(function() {
-					this._times = 1;
+			if (context._times === 1) {
+				context._times++;
+				context._lastTapTime = nowTime;
+				setTimeout(() => {
+					context._times = 1;
 				}, 1000);
 				return;
 			}
 			alert(`${touches}-${this._times}-${nowTime - this._lastTapTime}`);
-			if (touches === 2 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
+			if (touches === 2 && context._times === 2 && nowTime - context._lastTapTime < 1000) {
+				context._times = 1;
 				if (!showDebug) {
 					this.setState({
 						showDebug: true
@@ -37,8 +39,6 @@ class App extends Component {
 						showDebug: false
 					});
 				}
-				this._times = 1;
-				this._lastTapTime = new Date().getTime();
 			}
 		});
 	}
