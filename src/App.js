@@ -10,24 +10,23 @@ class App extends Component {
     this.state = {
       showDebug: true,
     };
-    this._times = 1;
+		this._times = 1;
+		this._lastTapTime = null;
   }
   componentDidMount() {
 		const { showDebug } = this.state;
-		window.addEventListener('touchend', function(e) {
+		window.addEventListener('touchend', e => {
 			var nowTime = new Date();
 			var touches = e.touches.length;
-
 			if (this._times === 1) {
 				this._times++;
 				this._lastTapTime = nowTime;
-
 				setTimeout(function() {
 					this._times = 1;
 				}, 1000);
 				return;
 			}
-
+			console.warn('touches::::', touches, this._times, nowTime - this._lastTapTime);
 			if (touches === 2 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
 				if (!showDebug) {
 					this.setState({
@@ -38,7 +37,6 @@ class App extends Component {
 						showDebug: false
 					});
 				}
-
 				this._times = 1;
 			}
 		});
