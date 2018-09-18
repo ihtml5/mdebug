@@ -28,8 +28,9 @@ class App extends Component {
 				return;
 			}
 			alert(`${touches}-${this._times}-${nowTime - this._lastTapTime}`);
-			if (touches === 2 && context._times === 2 && nowTime - context._lastTapTime < 1000) {
+			if (touches === 0 && context._times === 2 && nowTime - context._lastTapTime < 1000) {
 				context._times = 1;
+				context._lastTapTime = new Date();
 				if (!showDebug) {
 					this.setState({
 						showDebug: true
