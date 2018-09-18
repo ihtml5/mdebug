@@ -26,7 +26,7 @@ class App extends Component {
 				}, 1000);
 				return;
 			}
-			if (touches === 0 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
+			if (touches === 2 && this._times === 2 && nowTime - this._lastTapTime < 1000) {
 				if (!showDebug) {
 					this.setState({
 						showDebug: true
