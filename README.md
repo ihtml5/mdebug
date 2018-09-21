@@ -30,4 +30,5 @@ yarn add mdebug --save
 4. [基于React的移动端调试解决方案](https://github.com/abell123456/mdebug)
 5. [a useful debugger for mobile](https://github.com/ghking1/mdebug)
 6. [autoDevTools](https://github.com/chokcoco/autoDevTools)
+7. [react-inspector](https://github.com/xyc/react-inspector)
 
