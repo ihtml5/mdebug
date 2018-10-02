@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import '@/App.css';
 import JSONTree from 'react-json-tree';
 import { initData } from '@/mock';
+import Inspector from 'react-inspector';
 import { MdebugHeader, MdebugApplication } from '@/modules';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDebug: false,
+      showDebug: true,
     };
 		this._times = 1;
 		this._lastTapTime = null;
@@ -53,6 +54,7 @@ class App extends Component {
           <MdebugApplication id={"mdebug-application"}>
               <h1>Mdebug</h1>
               <JSONTree data={initData} />
+							<Inspector data={initData} />
           </MdebugApplication>
           <MdebugApplication id={"mdebug-system"}>
             {navigator.userAgent}
