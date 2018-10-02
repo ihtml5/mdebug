@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDebug: true,
+      showDebug: false,
     };
     this._times = 1;
     this._lastTapTime = null;
@@ -60,8 +60,6 @@ class App extends Component {
         <MdebugApplication id={'mdebug-application'}>
           <h1>Mdebug</h1>
 					<Inspector data={initData} />
-					<h4>文章类型: {initData.content.atype}</h4>
-					<h4>标题: <a href={initData.content.link} target="_blank">{initData.content.title}</a></h4>
         </MdebugApplication>
         <MdebugApplication id={'mdebug-system'}>
           {navigator.userAgent}
