@@ -3,12 +3,13 @@ import '@/App.css';
 import { initData } from '@/mock';
 import Inspector from 'react-inspector';
 import { MdebugHeader, MdebugApplication } from '@/modules';
+import { __DEV__ } from '@/utils';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDebug: true,
+      showDebug: __DEV__,
     };
     this._times = 1;
     this._lastTapTime = null;
