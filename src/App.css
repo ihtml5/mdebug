@@ -4,6 +4,8 @@
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .mdebug {
@@ -11,7 +13,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  min-height: 300px;
+  height: 40%;
   z-index: 10002;
   font-size: 13px;
 }

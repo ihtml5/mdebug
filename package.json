@@ -43,6 +43,7 @@
     "react": "^16.4.1",
     "react-dev-utils": "6.0.0-next.a671462c",
     "react-dom": "^16.4.1",
+    "react-inspector": "^2.3.0",
     "react-json-tree": "^0.11.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
