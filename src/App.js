@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDebug: false,
+      showDebug: true,
     };
     this._times = 1;
     this._lastTapTime = null;
