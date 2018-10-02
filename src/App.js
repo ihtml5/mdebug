@@ -59,11 +59,12 @@ class App extends Component {
         <MdebugHeader />
         <MdebugApplication id={'mdebug-application'}>
           <h1>Mdebug</h1>
-					<Inspector data={initData} />
+          <Inspector data={initData} />
         </MdebugApplication>
-        <MdebugApplication id={'mdebug-system'}>
-          {navigator.userAgent}
-        </MdebugApplication>
+        <MdebugApplication id={'mdebug-system'}>{navigator.userAgent}</MdebugApplication>
+        <MdebugApplication id={'mdebug-trategy'}>trategy</MdebugApplication>
+        <MdebugApplication id={'mdebug-debug'}>debug</MdebugApplication>
+        <MdebugApplication id={'mdebug-emonitor'}>emonitor</MdebugApplication>
       </div>
     );
   }
