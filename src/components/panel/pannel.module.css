@@ -1,3 +1,6 @@
 .mdebug-panel {
     padding: 5px;
+    max-height: 85%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
