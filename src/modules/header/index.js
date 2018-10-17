@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { selectTab } from '@/reducers/tab';
 
 const mapStateToProps = (state = {} , ownProps) => {
-  console.warn('state::::', state, ownProps)
   return {
     tabs: state.tabInfo.tabs,
     curTab: state.tabInfo.curTab
