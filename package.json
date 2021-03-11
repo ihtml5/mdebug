@@ -40,7 +40,7 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react": "^16.4.1",
-    "react-dev-utils": "6.0.0-next.a671462c",
+    "react-dev-utils": "11.0.4",
     "react-dom": "^16.4.1",
     "react-inspector": "^2.3.0",
     "react-json-tree": "^0.11.0",
