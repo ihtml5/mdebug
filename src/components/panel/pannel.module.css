@@ -1,0 +1,8 @@
+.mdebug-panel {
+    position: relative;
+    max-height: 85%;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    word-break: break-all;
+}

@@ -1,0 +1,12 @@
+.showmoreText {
+    display: inline-block;
+    margin-left: 10px;
+    color: rgb(40, 131, 233);
+    cursor: pointer;
+}
+.showmore {
+    list-style: 1.2;
+}
+.showmoreContent {
+    line-height: 1.2;
+}

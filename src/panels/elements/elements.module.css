@@ -1,0 +1,12 @@
+.mdebugElementsCon {
+    padding: 10px 5px 65px;
+}
+
+.mdebugElementsCon li {
+    overflow-x: auto;
+}
+
+.mdebugElementsCon li::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+}

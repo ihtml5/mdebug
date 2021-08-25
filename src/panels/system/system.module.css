@@ -1,0 +1,45 @@
+.mdebugSystemKeyName {
+    display: inline-block;
+    width: auto;
+    margin: 0 0.3em;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(40, 131, 233);
+    cursor: pointer;
+}
+.mdebugSystem li {
+    display: flex;
+    padding: 8px 5px;
+    border-bottom: 1px solid  #eee;
+    font-size: 12px;
+    cursor: pointer;
+}
+.mdebugSystemFlexValueName {
+    flex: 1;
+    cursor: pointer;
+}
+
+.mdebugSystemValueName {
+    flex: 1;
+    margin: 0 0.2em;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mdebugSystem {
+    padding-bottom: 45px;
+    overflow-y: scroll;
+    overflow: hidden;
+}
+.mdebugCopyResult {
+    display: inline-block;
+    width: 100%;
+    font-weight: 700;
+    color: #fc7e03;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

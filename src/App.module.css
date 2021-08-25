@@ -1,0 +1,98 @@
+.mdebug *,
+.mdebug *::before,
+.mdebug *::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.mdebug {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 300px;
+  height: 40%;
+  z-index: 10002;
+  font-size: 13px;
+  background-color: #fff;
+}
+
+.mdebugCon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+}
+.mdebugMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+  cursor: pointer;
+}
+.mdebugMaskNone {
+  display: none;
+}
+.mdebugActionCon {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  width: 100%;
+  list-style: none;
+  border: 1px solid rgb(40, 131, 233);
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  z-index: 2000;
+}
+.mdebugAction {
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+}
+
+.mdebugAction li {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(40, 131, 233, 0.3);
+  font-weight: 700;
+  cursor: pointer;
+}
+.mdebugAction li:last-child {
+  border-right: none;
+}
+.mdebugBtn {
+  display: block;
+  position: fixed;
+  right: .76923077em;
+  bottom: .76923077em;
+  color: #fff;
+  background-color: rgb(40, 131, 233);
+  line-height: 1;
+  font-size: 1.07692308em;
+  padding: .61538462em 1.23076923em;
+  z-index: 10000;
+  border-radius: .30769231em;
+  box-shadow: 0 0 0.61538462em rgba(0,0,0,.4);
+  cursor: pointer;
+}

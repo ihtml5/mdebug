@@ -1,0 +1,143 @@
+{
+  "name": "mdebug",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "jsnext:main": "dist/index.js",
+  "dependencies": {
+    "@babel/core": "7.0.0-beta.46",
+    "@babel/runtime": "7.0.0-beta.46",
+    "autoprefixer": "8.5.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "8.2.3",
+    "babel-jest": "22.4.3",
+    "babel-loader": "8.0.0-beta.4",
+    "babel-plugin-named-asset-import": "1.0.0-next.a671462c",
+    "babel-preset-react-app": "4.0.0-next.a671462c",
+    "bfj": "5.2.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.2",
+    "chalk": "2.4.1",
+    "chokidar": "^3.5.1",
+    "css-loader": "0.28.11",
+    "dotenv": "5.0.1",
+    "dotenv-expand": "4.2.0",
+    "eslint": "4.19.1",
+    "eslint-config-react-app": "3.0.0-next.a671462c",
+    "eslint-loader": "2.0.0",
+    "eslint-plugin-flowtype": "2.46.3",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.8.2",
+    "file-loader": "1.1.11",
+    "fs-extra": "5.0.0",
+    "graphql": "0.13.2",
+    "graphql-tag": "2.9.2",
+    "html-webpack-plugin": "3.2.0",
+    "identity-obj-proxy": "3.0.0",
+    "is-class": "0.0.9",
+    "jest": "22.4.3",
+    "loader-utils": "^1.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "object-assign": "4.1.1",
+    "optimize-css-assets-webpack-plugin": "^4.0.1",
+    "postcss-flexbugs-fixes": "3.3.1",
+    "postcss-loader": "2.1.5",
+    "promise": "8.0.1",
+    "qs": "^6.9.4",
+    "raf": "3.4.0",
+    "react": "^16.4.1",
+    "react-dev-utils": "6.0.0-next.a671462c",
+    "react-dom": "^16.4.1",
+    "react-draggable": "^4.4.3",
+    "react-inspector": "^2.3.0",
+    "react-json-tree": "^0.11.0",
+    "react-redux": "^5.0.7",
+    "react-scrolllock": "^5.0.1",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "resolve": "1.6.0",
+    "sass-loader": "7.0.1",
+    "serialize-javascript": "^4.0.0",
+    "style-loader": "0.21.0",
+    "svgr": "1.9.2",
+    "sw-precache-webpack-plugin": "0.11.5",
+    "thread-loader": "1.1.5",
+    "uglifyjs-webpack-plugin": "1.2.5",
+    "url-loader": "1.0.1",
+    "vconsole": "^3.2.0",
+    "webpack": "4.8.3",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-manifest-plugin": "2.0.3",
+    "whatwg-fetch": "2.0.4"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js && node scripts/docs.js",
+    "test": "node scripts/test.js --env=jsdom"
+  },
+  "browserslist": {
+    "development": [
+      "> 1%",
+      "last 2 versions",
+      "Firefox ESR",
+      "Opera 12.1",
+      "iOS 7"
+    ],
+    "production": [
+      "> 1%",
+      "last 2 versions",
+      "Firefox ESR",
+      "Opera 12.1",
+      "iOS 7"
+    ]
+  },
+  "devDependencies": {
+    "ajv": "^6.12.5",
+    "cookie": "^0.4.1",
+    "dot-prop": "^5.3.0",
+    "html-inline-css-webpack-plugin": "^1.9.0",
+    "lodash": "^4.17.20",
+    "node-forge": "^0.10.0",
+    "redux-devtools-extension": "^2.13.5"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.{js,jsx,mjs}",
+      "**/?(*.)(spec|test).{js,jsx,mjs}"
+    ],
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/config/jest/babelTransform.js",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^.+\\.(graphql)$": "<rootDir>/config/jest/graphqlTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json|graphql)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node",
+      "mjs"
+    ]
+  }
+}
