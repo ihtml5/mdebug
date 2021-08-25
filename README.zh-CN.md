@@ -3,7 +3,7 @@
 <img src="https://user-images.githubusercontent.com/6822604/130725631-dde49c00-24fe-44c6-a3fd-a5c709ce6e57.png" width="40%"/>
 </h1>
 
-<p align="center" style="margin: 30px 0 0px;">Mdebug makes mobile web development easier</p>
+<p align="center" style="margin: 30px 0 0px;">基于React开发的移动web调试工具</p>
 <table>
   <tr>
     <th><h4 align="center"><h4 align="center">简单易用</h4 align="center"></th>
