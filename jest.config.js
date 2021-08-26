@@ -1,4 +1,3 @@
-// 通用配置
 const config = {
   reporters: ['default'],
   collectCoverage: true,
