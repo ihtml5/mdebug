@@ -3,7 +3,7 @@ English | [简体中文](./README.zh-CN.md)
 <img src="https://user-images.githubusercontent.com/6822604/130725631-dde49c00-24fe-44c6-a3fd-a5c709ce6e57.png" width="40%"/>
 </h1>
 
-<p align="center" style="margin: 30px 0 0px;">Mobile web debugging tool developed based on react</p>
+<p align="center" style="margin: 30px 0 0px;">A lightweight, easy to extend web debugging tool developed based on react.</p>
 <table>
   <tr>
     <th><h4 align="center"><h4 align="center">Easy to use</h4 align="center"></th>
@@ -28,6 +28,15 @@ English | [简体中文](./README.zh-CN.md)
 ## Demos
 
 https://tnfe.github.io/mdebug
+
+![image](https://user-images.githubusercontent.com/6822604/131059931-7efb7494-82fe-4a27-bd79-ed2bd9ce2c11.png)
+
+## Examples
+
++ Vanilla
+
+[![Edit crimson-sun-py8x7](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/crimson-sun-py8x7?fontsize=14&hidenavigation=1&theme=dark)
+
 
 ## Installation
 
