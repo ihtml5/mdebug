@@ -1,21 +1,21 @@
-[English](./README.en.md) | 简体中文
+English | [简体中文](./README.md)
 <h1 align="center">
 <img src="https://user-images.githubusercontent.com/6822604/130725631-dde49c00-24fe-44c6-a3fd-a5c709ce6e57.png" width="40%"/>
 </h1>
 
-<p align="center" style="margin: 30px 0 0px;">基于React开发的移动web调试工具</p>
+<p align="center" style="margin: 30px 0 0px;">A lightweight, easy to extend web debugging tool developed based on react.</p>
 <table>
   <tr>
-    <th><h4 align="center"><h4 align="center">简单易用</h4 align="center"></th>
-    <th><h4 align="center"></h4 align="center"><h4 align="center">功能全面</h4 align="center"></th>
-    <th><h4 align="center"></h4 align="center"><h4 align="center">易扩展</h4 align="center"></th>
-    <th><h4 align="center"></h4 align="center"><h4 align="center">高性能</h4 align="center"></th>
+    <th><h4 align="center"><h4 align="center">Easy to use</h4 align="center"></th>
+    <th><h4 align="center"></h4 align="center"><h4 align="center">Full-featured</h4 align="center"></th>
+    <th><h4 align="center"></h4 align="center"><h4 align="center">Easy to expand</h4 align="center"></th>
+    <th><h4 align="center"></h4 align="center"><h4 align="center">high performance</h4 align="center"></th>
   </tr>
   <tr>
-    <td width="20%" align="center"><sub>使用cdn方式,一键接入</sub></td>
-    <td width="20%" align="center"><sub>类Chrome devtools, 支持日志,网络,存储,性能等, 具有更好的网络捕获能力和丰富的日志展现形式</sub></td>
-    <td width="20%" align="center"><sub>暴露内部丰富的事件, 可以和react组件无缝进行集成</td>
-    <td width="20%" align="center"><sub>支持大数据量展示, 不卡顿</td>
+    <td width="20%" align="center"><sub>Use the cdn method, one-click access</sub></td>
+    <td width="20%" align="center"><sub>Similar to Chrome devtools, supports log, network, storage, performance, etc., has better network capture capabilities and rich log display</sub></td>
+    <td width="20%" align="center"><sub>Expose rich internal events, which can be seamlessly integrated with react components</td>
+    <td width="20%" align="center"><sub>Support large amount of data display, no lag</td>
   </tr>
 </table>
 
@@ -25,26 +25,27 @@
 <a href="https://nodejs.org" target="_blank"><img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-brightgreen.svg" alt="Node Version" /></a>
 </div>
 
-## 一、快速体验
+## Demos
 
 https://tnfe.github.io/mdebug
 
 ![image](https://user-images.githubusercontent.com/6822604/131059931-7efb7494-82fe-4a27-bd79-ed2bd9ce2c11.png)
 
-## 二、Examples
+## Examples
 
 + Vanilla
 
 [![Edit crimson-sun-py8x7](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/crimson-sun-py8x7?fontsize=14&hidenavigation=1&theme=dark)
 
-## 三、安装
+
+## Installation
 
 #### Install using npm 
 ``` 
 npm install mdebug --save
 
 ```
-## 四、使用
+## Useage
 
 ### 1. ES6
 ```javascript
@@ -56,44 +57,44 @@ npm install mdebug --save
 ```javascript
 (function() {
     var scp = document.createElement('script');
-    // 加载最新的mdebug版本
+    // Load the latest mdebug version
     scp.src = 'https://unpkg.com/mdebug@latest/dist/index.js';
     scp.async = true;
     scp.charset = 'utf-8';
-    // 加载成功并初始化
+    // Successfully loaded and initialized
     scp.onload = function() {
         mdebug.init();
     };
-    // 加载状态切换回调
+    // Load state switch callback
     scp.onreadystate = function() {};
-    // 加载失败回调 
+    // Load failed callback 
     scp.onerror = function() {};
     document.getElementsByTagName('head')[0].appendChild(scp);
 })();
 ```
-## 五、API
+## API
 
 ### 1. init
 ```javascript
 mdebug.init({
-    containerId: '' // mdebug挂载容器id, 如果传空, 内部会自动生成一个不重复的id,
-    plugins: [], // 传入mdebug插件
-    hideToolbar: [], // 传入需要隐藏的tab id
+    containerId: '' // mdebug mounts the container id, if it is empty, a unique id will be automatically generated internally,
+    plugins: [], // Incoming mdebug plugin
+    hideToolbar: [], // Pass in the tab id that needs to be hidden
 });
 ```
 ### 2. addPlugin
 ```javascript
 mdebug.addPlugin({
     id: '', // tab id
-    name: '', // tab对应的中文title,
-    enName: '', // tab对应的英文title
-    component: () => {}, // tab对应的react组件
+    name: '', // Chinese title corresponding to tab,
+    enName: '', // English title corresponding to tab
+    component: () => {}, // React component corresponding to tab
 });
 ```
 
 ### 3. removePlugin
 ```javascript
-// 支持移除的panel对应的id
+// Support the id of the panel to be removed
 /*
 System => system;
 Elements => elements;
@@ -110,12 +111,12 @@ mdebug.removePlugin([]);
 ```javascript
 /*
 @returned {
-  type: '' // 日志类型
-  source: [], // 原始日志
+  type: '' // Log type
+  source: [], // Original log
 }
 @params type
-// type等于log, 返回所有的console日志
-// type等于net, 返回所有的net日志
+// type is equal to log, return all console logs
+// type is equal to net, return all net logs
 */
 mdebug.exportLog(type);
 
@@ -130,36 +131,30 @@ mdebug.on(eventName, callback);
 mdebug.emit(eventName, data);
 ```
 
-## 六、事件列表
-| **事件名称**     | **数据**     | **触发时机**     |
+## Event list
+| **Event name**     | **params**     | **Trigger timing**     |
 | ---------- | :-----------:  | :-----------: |
-| ready | object | mdebug加载完毕
-| addTab | object | 增加面板
-| removeTab | array | 移除面板 |
-| changeTab | object | 面板切换|
+| ready | object | mdebug loaded
+| addTab | object | Add panel
+| removeTab | array | Remove panel |
+| changeTab | object | Panel switch|
 
 
-## 七、开发
+## development
 
 1. npm i
-2. npm start   // 启动开发
-3. npm run build  //打包
-4. npm run test // 单元测试
-
-## 八、相关文章
-1. [移动端前端开发调试](https://www.cnblogs.com/yzg1/p/5160594.html?utm_source=tuicool&utm_medium=referral)
-2. [Chrome 开发者工具](https://developers.google.com/web/tools/chrome-devtools/)
-
-## 九、相关项目
+2. npm start
+3. npm run build 
+## Projects
 1. [eruda](https://github.com/liriliri/eruda)
 2. [vConsole](https://github.com/Tencent/vConsole)
 3. [react-json-tree](https://github.com/alexkuz/react-json-tree)
-4. [基于React的移动端调试解决方案](https://github.com/abell123456/mdebug)
+4. [React-based mobile debugging solution](https://github.com/abell123456/mdebug)
 5. [a useful debugger for mobile](https://github.com/ghking1/mdebug)
 6. [autoDevTools](https://github.com/chokcoco/autoDevTools)
 7. [react-inspector](https://github.com/xyc/react-inspector)
 8. [web-console](https://github.com/whinc/web-console)
 9. [ChromeDevTools](https://github.com/ChromeDevTools/devtools-frontend)
 
-## 十、License
+## License
 The MIT License (MIT). Please see [License File](./LICENSE) for more information.
