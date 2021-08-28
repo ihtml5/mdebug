@@ -29,14 +29,22 @@
 
 https://tnfe.github.io/mdebug
 
-## 二、Installation
+![image](https://user-images.githubusercontent.com/6822604/131059931-7efb7494-82fe-4a27-bd79-ed2bd9ce2c11.png)
+
+## 二、Examples
+
++ Vanilla
+
+[![Edit crimson-sun-py8x7](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/crimson-sun-py8x7?fontsize=14&hidenavigation=1&theme=dark)
+
+## 三、安装
 
 #### Install using npm 
 ``` 
 npm install mdebug --save
 
 ```
-## 三、Useage
+## 四、使用
 
 ### 1. ES6
 ```javascript
@@ -63,7 +71,7 @@ npm install mdebug --save
     document.getElementsByTagName('head')[0].appendChild(scp);
 })();
 ```
-## 四、API
+## 五、API
 
 ### 1. init
 ```javascript
@@ -122,7 +130,7 @@ mdebug.on(eventName, callback);
 mdebug.emit(eventName, data);
 ```
 
-## 五、事件列表
+## 六、事件列表
 | **事件名称**     | **数据**     | **触发时机**     |
 | ---------- | :-----------:  | :-----------: |
 | ready | object | mdebug加载完毕
@@ -131,17 +139,18 @@ mdebug.emit(eventName, data);
 | changeTab | object | 面板切换|
 
 
-## 六、开发
+## 七、开发
 
 1. npm i
 2. npm start   // 启动开发
 3. npm run build  //打包
+4. npm run test // 单元测试
 
-## 七、Articles
+## 八、相关文章
 1. [移动端前端开发调试](https://www.cnblogs.com/yzg1/p/5160594.html?utm_source=tuicool&utm_medium=referral)
 2. [Chrome 开发者工具](https://developers.google.com/web/tools/chrome-devtools/)
 
-## 八、Projects
+## 九、相关项目
 1. [eruda](https://github.com/liriliri/eruda)
 2. [vConsole](https://github.com/Tencent/vConsole)
 3. [react-json-tree](https://github.com/alexkuz/react-json-tree)
@@ -152,5 +161,5 @@ mdebug.emit(eventName, data);
 8. [web-console](https://github.com/whinc/web-console)
 9. [ChromeDevTools](https://github.com/ChromeDevTools/devtools-frontend)
 
-## 九、License
+## 十、License
 The MIT License (MIT). Please see [License File](./LICENSE) for more information.
