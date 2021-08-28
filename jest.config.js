@@ -20,7 +20,7 @@ const config = {
     '~/(.*)$': '<rootDir>/__mocks__/$1',
   },
   coverageDirectory: '<rootDir>/coverage',
-  //   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
+  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
 };
 
 module.exports = config;

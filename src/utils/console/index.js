@@ -1,4 +1,4 @@
-import { isObject } from '@/utils/shared';
+import { isObject, isXMLHttpRequest } from '@/utils/shared';
 const methodList = ['log', 'info', 'warn', 'debug', 'error', 'trace'];
 
 export const fakeConsole = {
@@ -25,7 +25,7 @@ export function change(logvalue, keywords) {
             return change(item)
         } else if (isObject(item)) {
            return findObj(item, keywords)
-        } else if (Object.prototype.toString.call(item) === '[object XMLHttpRequest]') {
+        } else if (isXMLHttpRequest(item)) {
             const xmlInfo = {};
             for (const key in item) {
                 xmlInfo[key] = item[key];
