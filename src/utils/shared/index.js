@@ -14,6 +14,7 @@
  export const isNumber = num => typeof num === 'number';
  export const hasProp = (obj, key) => nativeHasOwn.call(obj, key);
  export const isError = error => nativeToString.call(error) === '[object Error]';
+ export const isXMLHttpRequest = item => nativeToString.call(item) === '[object XMLHttpRequest]'
  export const noop = () => {};
  export const debounce = (func, delay, callback) => {
    let timer = null;

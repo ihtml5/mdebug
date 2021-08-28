@@ -1,6 +1,6 @@
 {
   "name": "mdebug",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",
@@ -92,6 +92,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
     "ajv": "^6.12.5",
     "cookie": "^0.4.1",
     "dot-prop": "^5.3.0",
@@ -100,44 +104,16 @@
     "node-forge": "^0.10.0",
     "redux-devtools-extension": "^2.13.5"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
-    "testMatch": [
-      "**/__tests__/**/*.{js,jsx,mjs}",
-      "**/?(*.)(spec|test).{js,jsx,mjs}"
-    ],
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx|mjs)$": "<rootDir>/config/jest/babelTransform.js",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^.+\\.(graphql)$": "<rootDir>/config/jest/graphqlTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json|graphql)$)": "<rootDir>/config/jest/fileTransform.js"
+  "env": {
+    "development": {
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
     },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node",
-      "mjs"
-    ]
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    }
   }
 }
