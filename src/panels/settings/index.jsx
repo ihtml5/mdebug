@@ -13,7 +13,7 @@ class Settings extends PureComponent {
         <p>
           author: <a href="https://github.com/ihtml5">ihtml5</a>
         </p>
-        <p>version: 1.0.2</p>
+        <p>version: 1.0.3</p>
       </div>
     );
   }
