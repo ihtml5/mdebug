@@ -41,8 +41,9 @@ export const emitter = {
       }
       return false;
     };
-    const isTopic = typeof value === 'string'
-      && (nativeHasOwn.call(topices, value) || descendantTopicExists(value));
+    const isTopic =
+      typeof value === 'string' &&
+      (nativeHasOwn.call(topices, value) || descendantTopicExists(value));
     const isToken = !isTopic && typeof value === 'string';
     const isFunction = typeof value === 'function';
     let t = null;
@@ -86,7 +87,7 @@ export const emitter = {
       throw ex;
     };
     const callSubscriberWithExceptions = (subscriber, data, async) => {
-      const emitSubscribe = (data) => {
+      const emitSubscribe = data => {
         if (subscriber.cb) {
           subscriber.cb.call(subscriber.context, data);
         }
@@ -120,4 +121,3 @@ export const emitter = {
     return true;
   },
 };
- 
