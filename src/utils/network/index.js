@@ -1,10 +1,10 @@
 import { networkLog } from '@/constants';
 
-export const addNetworkLog = (data) => {
+export const addNetworkLog = data => {
   const { type } = data;
   if (type === 'websocket') {
     const { name, wsType, readyState } = data;
-    const websocketState = wsType === 'close' && readyState === 3 ? 'close' : 'connect'
+    const websocketState = wsType === 'close' && readyState === 3 ? 'close' : 'connect';
     const websocketItem = networkLog.find(el => el.name === name);
     if (websocketItem) {
       const { messages = [] } = websocketItem;
@@ -12,7 +12,7 @@ export const addNetworkLog = (data) => {
       websocketItem.httpcode = websocketState;
       if (websocketState === 'close') {
         websocketItem.wsClosed = true;
-        websocketItem.delay = (new Date().getTime()) - websocketItem.starttime;
+        websocketItem.delay = new Date().getTime() - websocketItem.starttime;
       }
     } else {
       networkLog.push({
@@ -23,9 +23,9 @@ export const addNetworkLog = (data) => {
         starttime: new Date().getTime(),
         httpcode: websocketState,
         initiatorType: 'ws',
-      })
+      });
     }
   } else {
     networkLog.push(data);
   }
-}
+};

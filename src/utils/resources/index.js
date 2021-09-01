@@ -1,31 +1,31 @@
-
-
 const getType = type => {
-    if (type === 'xmlhttprequest') {
-        return 'xhr';
-    }
-    if (type === 'css') {
-      return 'img';
-    }
-    if (['link', 'script', 'fetch', 'img'].indexOf(type) !== -1) {
-        return type;
-    }
-    return 'media';
+  if (type === 'xmlhttprequest') {
+    return 'xhr';
+  }
+  if (type === 'css') {
+    return 'img';
+  }
+  if (['link', 'script', 'fetch', 'img'].indexOf(type) !== -1) {
+    return type;
+  }
+  return 'media';
 };
 // 统计页面资源性能
 export const getRcTiming = () => {
+  try {
+    if (!window.performance || !window.performance.getEntries) {
+      console.warn('prerformance is not supported');
+      return [];
+    }
+    const resource = performance.getEntries();
+    const resourceList = [];
+    if (!resource && !resource.length) {
+      return resourceList;
+    }
     try {
-      if (!window.performance || !window.performance.getEntries) {
-        console.warn('prerformance is not supported');
-        return [];
-      }
-      const resource = performance.getEntries();
-      const resourceList = [];
-      if (!resource && !resource.length) {
-        return resourceList;
-      }
-      try {
-        resource.filter(res => ['css', 'img', 'link', 'script'].indexOf(res.initiatorType) !== -1).forEach(item => {
+      resource
+        .filter(res => ['css', 'img', 'link', 'script'].indexOf(res.initiatorType) !== -1)
+        .forEach(item => {
           const json = {
             name: item.name,
             httpcode: 200,
@@ -43,13 +43,13 @@ export const getRcTiming = () => {
           };
           resourceList.push(json);
         });
-      } catch (err) {
-        console.error('get resourceTiming err::::', err);
-      }
-      performance.clearResourceTimings();
-      return resourceList;
     } catch (err) {
-      console.warn('get performance happen error');
-      return [];
+      console.error('get resourceTiming err::::', err);
     }
-  };
+    performance.clearResourceTimings();
+    return resourceList;
+  } catch (err) {
+    console.warn('get performance happen error');
+    return [];
+  }
+};

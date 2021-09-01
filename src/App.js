@@ -30,8 +30,9 @@ class App extends Component {
     this.state = {
       showDebug: __DEV__,
       deltaPosition: {
-        x: 0, y: 0
-      }
+        x: 0,
+        y: 0,
+      },
     };
     this.updatePlugin = this.updatePlugin.bind(this);
   }
@@ -49,11 +50,8 @@ class App extends Component {
       // 触发tab更新
       emit('addTab', { tabs });
       this.setState({
-        plugins: [
-          ...plugins,
-          plugin,
-        ]
-      })
+        plugins: [...plugins, plugin],
+      });
     }
   }
   removePlugin(pluginId) {
@@ -64,22 +62,28 @@ class App extends Component {
   componentDidMount() {
     const { options = {}, onUpdateTab = noop } = this.props;
     const { plugins } = options || {};
-    
+
     // 更新tabs
-    const loadedPlugins = Array.isArray(plugins) ? plugins.map(plugin => {
-      const { id, name, enName, component } = plugin;
-      const isValidPlugin = id && name && enName && typeof component === 'function';
-      return isValidPlugin ? {
-        id,
-        name,
-        enName,
-        component,
-      } : undefined
-    }).filter(plugin => plugin) : false;
+    const loadedPlugins = Array.isArray(plugins)
+      ? plugins
+          .map(plugin => {
+            const { id, name, enName, component } = plugin;
+            const isValidPlugin = id && name && enName && typeof component === 'function';
+            return isValidPlugin
+              ? {
+                  id,
+                  name,
+                  enName,
+                  component,
+                }
+              : undefined;
+          })
+          .filter(plugin => plugin)
+      : false;
     this.setState({
       plugins,
     });
-    
+
     if (loadedPlugins && loadedPlugins.length > 0) {
       const tabs = loadedPlugins.map(loadedPlugin => {
         const { id, name, enName } = loadedPlugin;
@@ -88,7 +92,7 @@ class App extends Component {
           name,
           enName,
         };
-      })
+      });
       onUpdateTab(tabs);
       emit('addTab', { tabs });
     }
@@ -99,7 +103,7 @@ class App extends Component {
     on('removePlugin', pluginId => this.removePlugin(pluginId));
     on('clearproxy', () => {
       clearProxyRules();
-    })
+    });
   }
   componentWillUnmount() {
     // 绑定监听事件
@@ -115,120 +119,139 @@ class App extends Component {
     const { containerId = '' } = options || {};
     return (
       <Fragment>
-        {<Draggable
-          onStart={() => {
-            this.startTime = new Date().getTime();
-            if (isDraging) {
-              this.setState({
-                isDraging: false,
-              });
-            }
-          }}
-          position={{
-            x: deltaPosition.x,
-            y: deltaPosition.y,
-          }}
-          onStop={() => {
-            this.endTime = new Date().getTime();
-            const deltaTime = this.endTime - this.startTime;
-            const isNoMouseDown = deltaTime > 300;
-            this.setState({
-              isDraging: isNoMouseDown ? true : false,
-            }, () => {
-              if (!isNoMouseDown) {
-                onShowDebug({
-                  showDebug: isDraging ? false : true,
+        {
+          <Draggable
+            onStart={() => {
+              this.startTime = new Date().getTime();
+              if (isDraging) {
+                this.setState({
+                  isDraging: false,
                 });
               }
-            });
-            return true;
-          }}
-          onDrag={(event, ui) => {
-            const { x, y } = this.state.deltaPosition;
-            this.setState({
-              isDraging: isDraging || true,
-              deltaPosition: {
-                x: x + ui.deltaX,
-                y: y + ui.deltaY,
-              }
-            });
-          }}><div
-            className={styles.mdebugBtn}
-            style={{
-              display: !showDebug ? undefined : 'none',
             }}
-          >mdebug
-          </div>
-        </Draggable>}
-      <div className={`${styles.mdebugCon} ${containerId}`} style={{
-        display: !showDebug ? 'none' : undefined,
-      }}>
-        {showDebug ? <LockScroll/> : null}
-        <div className={showDebug ? styles.mdebugMask : styles.mdebugMaskNone } onClick={() => onShowDebug({
-          showDebug: false,
-        })}/>
+            position={{
+              x: deltaPosition.x,
+              y: deltaPosition.y,
+            }}
+            onStop={() => {
+              this.endTime = new Date().getTime();
+              const deltaTime = this.endTime - this.startTime;
+              const isNoMouseDown = deltaTime > 300;
+              this.setState(
+                {
+                  isDraging: isNoMouseDown ? true : false,
+                },
+                () => {
+                  if (!isNoMouseDown) {
+                    onShowDebug({
+                      showDebug: isDraging ? false : true,
+                    });
+                  }
+                },
+              );
+              return true;
+            }}
+            onDrag={(event, ui) => {
+              const { x, y } = this.state.deltaPosition;
+              this.setState({
+                isDraging: isDraging || true,
+                deltaPosition: {
+                  x: x + ui.deltaX,
+                  y: y + ui.deltaY,
+                },
+              });
+            }}>
+            <div
+              className={styles.mdebugBtn}
+              style={{
+                display: !showDebug ? undefined : 'none',
+              }}>
+              mdebug
+            </div>
+          </Draggable>
+        }
         <div
-          className={styles.mdebug}
+          className={`${styles.mdebugCon} ${containerId}`}
           style={{
-            display: showDebug ? 'block' : 'none',
-          }}
-        >
-          <Header options={options} />
-          <PanelCon id={'mdebugSystem'}>
-            <System/>
-          </PanelCon>
-          <PanelCon id={'mdebugConsole'}>
-            <Console />
-          </PanelCon>
-          <PanelCon id={'mdebugElements'}>
-            <Elements />
-          </PanelCon>
-          <PanelCon id={'mdebugNetwork'}>
-            <Network/>
-          </PanelCon>
-          <PanelCon id={'mdebugApplication'}>
-            <Applicaton/>
-          </PanelCon>
-          <PanelCon id={'mdebugSettings'}>
-            <Settings/>
-          </PanelCon>
-          <PanelCon id={'mdebugPerformance'}>
-            <Mperformance/>
-          </PanelCon>
-          <PanelCon id={'mdebugProxy'}>
-            <ProxyAPI/>
-          </PanelCon>
-          {Array.isArray(plugins) && plugins.map(plugin => {
-            const { id, name, enName } = plugin;
-            const PluginComponent = plugin.component;
-            return (<PanelCon id={id}>
-              <PluginComponent dispatch={dispatch} globalState={globalState} info={{ id, name, enName }} />
-            </PanelCon>);
-          })}
-          <Toolbar options={options}/>
+            display: !showDebug ? 'none' : undefined,
+          }}>
+          {showDebug ? <LockScroll /> : null}
+          <div
+            className={showDebug ? styles.mdebugMask : styles.mdebugMaskNone}
+            onClick={() =>
+              onShowDebug({
+                showDebug: false,
+              })
+            }
+          />
+          <div
+            className={styles.mdebug}
+            style={{
+              display: showDebug ? 'block' : 'none',
+            }}>
+            <Header options={options} />
+            <PanelCon id={'mdebugSystem'}>
+              <System />
+            </PanelCon>
+            <PanelCon id={'mdebugConsole'}>
+              <Console />
+            </PanelCon>
+            <PanelCon id={'mdebugElements'}>
+              <Elements />
+            </PanelCon>
+            <PanelCon id={'mdebugNetwork'}>
+              <Network />
+            </PanelCon>
+            <PanelCon id={'mdebugApplication'}>
+              <Applicaton />
+            </PanelCon>
+            <PanelCon id={'mdebugSettings'}>
+              <Settings />
+            </PanelCon>
+            <PanelCon id={'mdebugPerformance'}>
+              <Mperformance />
+            </PanelCon>
+            <PanelCon id={'mdebugProxy'}>
+              <ProxyAPI />
+            </PanelCon>
+            {Array.isArray(plugins) &&
+              plugins.map(plugin => {
+                const { id, name, enName } = plugin;
+                const PluginComponent = plugin.component;
+                return (
+                  <PanelCon id={id}>
+                    <PluginComponent
+                      dispatch={dispatch}
+                      globalState={globalState}
+                      info={{ id, name, enName }}
+                    />
+                  </PanelCon>
+                );
+              })}
+            <Toolbar options={options} />
+          </div>
         </div>
-      </div>
       </Fragment>
     );
   }
 }
-const mapStateToProps = (state) => {
-    return {
-        mdevtools: state.settings.mdevtools,
-        globalState: {...state},
-    };
+const mapStateToProps = state => {
+  return {
+    mdevtools: state.settings.mdevtools,
+    globalState: { ...state },
+  };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onShowDebug: (data) => {
-          const { showDebug } = data || {};
-          dispatch(setMdevTools(data));
-          emit(showDebug ? 'show' : 'hide');
-        },
-        onUpdateTab: (data) => dispatch(updateTab(data)),
-        onRemoveTab: (data) => dispatch(filterTab(data)),
-        dispatch,
-    };
+const mapDispatchToProps = dispatch => {
+  return {
+    onShowDebug: data => {
+      const { showDebug } = data || {};
+      dispatch(setMdevTools(data));
+      emit(showDebug ? 'show' : 'hide');
+    },
+    onUpdateTab: data => dispatch(updateTab(data)),
+    onRemoveTab: data => dispatch(filterTab(data)),
+    dispatch,
+  };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

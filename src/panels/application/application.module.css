@@ -61,13 +61,13 @@ tr.mdebugTrActive td {
   border-bottom: none;
 }
 td.mdebugApplicationKeyName {
-    padding-right: 5px;
-    margin: 0 20px;
-    padding-right: 10px;
-    font-size: 12px;
-    color: #000;
-    border: 1px solid #eee;
-    word-break: break-all;
+  padding-right: 5px;
+  margin: 0 20px;
+  padding-right: 10px;
+  font-size: 12px;
+  color: #000;
+  border: 1px solid #eee;
+  word-break: break-all;
 }
 td.mdebugApplicationValueName {
   padding-left: 5px;
@@ -83,14 +83,14 @@ td.mdebugApplicationHeaderKeyName {
   padding: 5px;
   font-size: 12px;
   font-weight: 700;
-  color:  rgb(40, 131, 233);
+  color: rgb(40, 131, 233);
 }
 td.mdebugApplicationHeaderValueName {
   padding: 5px;
   font-size: 12px;
   font-weight: 700;
   text-align: center;
-  color:  rgb(40, 131, 233);
+  color: rgb(40, 131, 233);
 }
 .mdebugApplicationTr td {
   width: 50%;
@@ -118,7 +118,8 @@ td.mdebugApplicationHeaderValueName {
   padding: 8px;
   border: 1px solid #666;
 } */
-tr.mdebugApplicationTr > td, tr.mdebugApplicationTr th {
+tr.mdebugApplicationTr > td,
+tr.mdebugApplicationTr th {
   padding: 8px;
 }
 .mdebugActionApplicationSearch {
@@ -132,7 +133,8 @@ tr.mdebugApplicationTr > td, tr.mdebugApplicationTr th {
   color: rgb(40, 131, 233);
 }
 
-.mdebugActionApplicationSearch input:focus,  .mdebugActionApplicationSearch input:active {
+.mdebugActionApplicationSearch input:focus,
+.mdebugActionApplicationSearch input:active {
   border: none;
 }
 .settings {
@@ -149,12 +151,12 @@ tr.mdebugApplicationTr > td, tr.mdebugApplicationTr th {
   font-size: 12px;
   height: 24px;
   border: none;
-  outline:none;
+  outline: none;
   border-radius: 0;
   text-indent: 0.5em;
 }
-input.applicationinput:focus {   
-	border: 1px solid rgb(40, 131, 233);
+input.applicationinput:focus {
+  border: 1px solid rgb(40, 131, 233);
   height: 24px;
 }
 .allDelete {
@@ -173,7 +175,7 @@ input.applicationinput:focus {
 .mdebugEditInput {
   width: 100%;
   border: none;
-  outline:none;
+  outline: none;
   border-radius: 0;
   font-size: 12px;
   height: 24px;

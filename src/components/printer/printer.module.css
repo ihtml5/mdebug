@@ -1,47 +1,45 @@
 .mdebugConsoleDetail {
-    padding: 10px 5px 50px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  .mdebugConsoleDetailLi {
-    display: flex;
-    padding: 5px;
-    border-bottom: 1px solid #eee;
-    line-height: 1.5;
-    cursor: pointer;
-  }
-  .mdebugConsoleDetail > li:nth-of-type(1) {
-    margin-top: 30px;
-  }
-  .mdebugConsoleLabel {
-    display: inline-block;
-    padding: 2px 5px;
-    margin-right: 5px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    height: 22px;
-  }
-  .mdebugConsoleValue {
-    margin-top: 2px;
-    display: flex;
-    margin-right: 5px;
-  }
-  .mdebugConsoleValues {
-    flex: 1;
-    padding-left: 5px;
-    border: 1px dashed rgb(40, 131, 233);
-  }
-  .mdebugConsoleMultiValue {
-    margin-right: 3px;
-    display: block;
-  }
-  .mdebugConsoleIndexValue {
-    display: flex;
-  }
-  .mdebugConsoleIndex {
-    margin-right: 3px;
-    color: #888;
-  }
-  
-  
+  padding: 10px 5px 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.mdebugConsoleDetailLi {
+  display: flex;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.mdebugConsoleDetail > li:nth-of-type(1) {
+  margin-top: 30px;
+}
+.mdebugConsoleLabel {
+  display: inline-block;
+  padding: 2px 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  height: 22px;
+}
+.mdebugConsoleValue {
+  margin-top: 2px;
+  display: flex;
+  margin-right: 5px;
+}
+.mdebugConsoleValues {
+  flex: 1;
+  padding-left: 5px;
+  border: 1px dashed rgb(40, 131, 233);
+}
+.mdebugConsoleMultiValue {
+  margin-right: 3px;
+  display: block;
+}
+.mdebugConsoleIndexValue {
+  display: flex;
+}
+.mdebugConsoleIndex {
+  margin-right: 3px;
+  color: #888;
+}
