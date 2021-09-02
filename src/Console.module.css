@@ -1,0 +1,38 @@
+.Console {
+  height: 100%;
+  overflow-x: auto;
+  border-top: 1px solid #ddd;
+  font-family: monospace;
+}
+
+.Error,
+.Info,
+.Log,
+.Warn {
+  padding: 0.25rem 0.5rem;
+  white-space: pre-wrap;
+}
+
+.Error {
+  border-bottom: 1px solid rgb(255, 214, 214);
+  background-color: hsl(0, 100%, 97%);
+  color: red;
+}
+
+.Info,
+.Log {
+  border-bottom: 1px solid #eee;
+}
+
+.Warn {
+  border-bottom: 1px solid rgb(255, 245, 194);
+  background-color: rgb(255, 251, 229);
+  color: rgb(48, 57, 66);
+}
+
+.Input {
+  width: 100%;
+  height: 1rem;
+  outline: none;
+  padding: 0.25rem 0.5rem;
+}

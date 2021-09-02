@@ -1,0 +1,12 @@
+html {
+  font-size: 13px;
+}
+
+body {
+  margin: 0;
+}
+
+html, body, #root {
+  box-sizing: border-box;
+  height: 100%;
+}

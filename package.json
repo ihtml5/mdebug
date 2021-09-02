@@ -1,0 +1,39 @@
+{
+  "name": "react-devtools-tutorial",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reach/router": "^1.2.1",
+    "prettier": "^1.18.2",
+    "react": "^17.0.2",
+    "react-debug-tools": "^0.1.0",
+    "react-devtools-inline": "^4.0.5",
+    "react-dom": "^17.0.2",
+    "react-scripts": "3.0.1",
+    "scheduler": "^0.0.0-375616788",
+    "use-subscription": "^1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "now --target production",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write '{public,src}/**/*.js'"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
