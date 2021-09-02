@@ -1,15 +1,15 @@
 .mdebugSettings {
-    padding: 10px 5px 50px;
+  padding: 10px 5px 50px;
 }
 .mdebugSettings h3 {
-    margin-bottom: 5px;
-    color: #0052D9;
+  margin-bottom: 5px;
+  color: #0052d9;
 }
 .mdebugSettings p {
-    margin-bottom: 5px;
-    color: #333;   
+  margin-bottom: 5px;
+  color: #333;
 }
 .mdebugSettings p a {
-    color: #333;
-    text-decoration: none;
+  color: #333;
+  text-decoration: none;
 }
