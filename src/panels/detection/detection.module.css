@@ -1,0 +1,29 @@
+.detectionCon {
+  margin: 10px;
+  padding-bottom: 40px;
+}
+.mdebugDetection {
+  table-layout: fixed;
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  overflow: scroll;
+  border-collapse: collapse;
+}
+.mdebugDetectionTh {
+  width: 100%;
+  border: 1px solid #eee;
+  font-weight: 700;
+}
+.mdebugDetectionTh td {
+  padding: 5px;
+}
+.mdebugDetectionTr td {
+  padding: 5px;
+}
+
+.detectionCon p {
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+}

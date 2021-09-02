@@ -4,6 +4,7 @@ import { Header, PanelCon } from '@/modules';
 import Applicaton from '@/modules/application';
 import Settings from '@/panels/settings';
 import Elements from '@/panels/elements';
+import Detection from '@/panels/detection';
 import ProxyAPI from '@/modules/proxy';
 import System from '@/modules/system';
 import Mperformance from '@/modules/performance';
@@ -207,6 +208,9 @@ class App extends Component {
             </PanelCon>
             <PanelCon id={'mdebugSettings'}>
               <Settings />
+            </PanelCon>
+            <PanelCon id={'mdebugDetection'}>
+              <Detection />
             </PanelCon>
             <PanelCon id={'mdebugPerformance'}>
               <Mperformance />

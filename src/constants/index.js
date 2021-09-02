@@ -30,6 +30,12 @@ export const TABS = [
     alias: 'application',
   },
   {
+    name: 'Detection',
+    enName: 'Detection',
+    id: 'mdebugDetection',
+    alias: 'detection',
+  },
+  {
     name: 'Proxy',
     enName: 'Proxy',
     id: 'mdebugProxy',
