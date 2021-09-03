@@ -11,9 +11,9 @@ class Settings extends PureComponent {
       <div className={styles.mdebugSettings}>
         <h3>Mdebug by Tencent News TNT Web Team</h3>
         <p>
-          author: <a href="https://github.com/ihtml5">ihtml5</a>
+          author: <a href="https://github.com/ihtml5">云峰</a>
         </p>
-        <p>version: 1.0.3</p>
+        <p>version: 2.0.0</p>
       </div>
     );
   }
