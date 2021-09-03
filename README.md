@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-# React DevTools Tutorial
-
-See the tutorial at [react-devtools-tutorial.now.sh](https://react-devtools-tutorial.now.sh/).
-
-### Development
-
-```shell
-yarn install
-yarn start
-```
-=======
 [English](./README.en.md) | 简体中文
 <h1 align="center">
 <img src="https://user-images.githubusercontent.com/6822604/130725631-dde49c00-24fe-44c6-a3fd-a5c709ce6e57.png" width="40%"/>
@@ -177,4 +165,3 @@ mdebug.emit(eventName, data);
 
 ## 十、License
 The MIT License (MIT). Please see [License File](./LICENSE) for more information.
->>>>>>> 28a7a30729b34f5bb5d1c44409df8cdaa4cc3f41
