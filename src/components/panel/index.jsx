@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Protector from '@/components/protector';
 import styles from './pannel.module.css';
 
@@ -17,4 +17,4 @@ const Panel = props => {
   return null;
 };
 
-export default Panel;
+export default memo(Panel);

@@ -12,6 +12,10 @@ const config = {
   verbose: true,
   testPathIgnorePatterns: ['/node_modules/', 'jest.config.js', '/mock/', '/__mocks__'],
   setupFiles: [],
+<<<<<<< HEAD
+=======
+  setupTestFrameworkScriptFile: '',
+>>>>>>> 28a7a30729b34f5bb5d1c44409df8cdaa4cc3f41
   testMatch: ['<rootDir>/__tests__/**/*.test.{js,jsx,mjs}'],
   testEnvironment: 'jsdom',
   moduleNameMapper: {

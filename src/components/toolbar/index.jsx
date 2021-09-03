@@ -26,7 +26,6 @@ class ToolBar extends PureComponent {
     const { enName = '' } = curTab || {};
     off(`${enName}Add`);
   }
-
   render() {
     const { onShowDebug, tabInfo = {}, options = {} } = this.props;
     const { curTab = {} } = tabInfo || {};

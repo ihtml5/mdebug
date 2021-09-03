@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+  />
   <meta name="referrer" content="origin">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -18,35 +17,29 @@
       padding-left: 10px;
       padding-right: 10px;
     }
-
     pre {
       background-color: #eee;
       padding: 10px;
       font-size: 16px;
-      word-break: break-all;
+      word-break:break-all;
       display: block;
       white-space: pre;
       margin: 1em 0;
       white-space: pre-wrap;
       word-wrap: break-word;
-      *white-space: normal;
+      *white-space:normal;
       line-height: 1.3;
     }
-
     table {
       border-collapse: collapse;
     }
-
-    table td,
-    table th {
+    table td, table th {
       border: 1px solid #eee;
       padding: 10px;
     }
-
     table th {
       background-color: #eee;
     }
-
     .badge a {
       margin-right: 3px;
     }
@@ -56,9 +49,9 @@
 <body style="padding-left:10px;padding-right: 10px;">
   <h1 align="center">
     <img src="https://user-images.githubusercontent.com/6822604/130725631-dde49c00-24fe-44c6-a3fd-a5c709ce6e57.png"
-      width="40%" style="max-width: 400px;" />
+      width="40%" style="max-width: 400px;"/>
   </h1>
-
+  
   <p align="center" style="margin: 30px 0 0px; margin-bottom: 20px;">Mdebug makes mobile web development easier</p>
   <table>
     <tr>
@@ -86,7 +79,7 @@
       <td width="20%" align="center"><sub>支持大数据量展示, 不卡顿</td>
     </tr>
   </table>
-
+  
   <div align="center" style="margin-top: 20px;" class="badge">
     <a href="https://npmjs.org/package/mdebug" target="_blank"><img src="https://img.shields.io/npm/v/mdebug.svg"
         alt="NPM Version" /></a>
@@ -96,25 +89,25 @@
         src="https://img.shields.io/badge/node-%3E%3D%208.0.0-brightgreen.svg" alt="Node Version" /></a>
   </div>
 
-  <h1> 一、快速体验</h1>
+<h1> 一、快速体验</h1>
 
-  <a href="https://tnfe.github.io/mdebug">https://tnfe.github.io/mdebug</a>
+<a href="https://tnfe.github.io/mdebug">https://tnfe.github.io/mdebug</a>
 
-  <h2>二、Installation</h2>
+<h2>二、Installation</h2>
 
-  <h4>Install using npm </h4>
-  <pre>
+<h4>Install using npm </h4>
+<pre>
 npm install mdebug --save
 </pre>
-  <h2> 三、Useage</h2>
+<h2> 三、Useage</h2>
 
-  <h3> 1.ES6 </h3>
-  <pre>
+<h3> 1.ES6 </h3>
+<pre>
   import mdebug from 'mdebug';
   mdebug.init();
 </pre>
-  <h3> 2.CDN</h3>
-  <pre>
+<h3> 2.CDN</h3>
+<pre>
 (function() {
     var scp = document.createElement('script');
     // 加载最新的mdebug版本
@@ -133,17 +126,17 @@ npm install mdebug --save
 })();
 </pre>
 
-  <h2>四、API</h2>
-  <h3> 1.init </h3>
-  <pre>
+<h2>四、API</h2>
+<h3> 1.init </h3>
+<pre>
 mdebug.init({
     containerId: '' // mdebug挂载容器id, 如果传空, 内部会自动生成一个不重复的id,
     plugins: [], // 传入mdebug插件
     hideToolbar: [], // 传入需要隐藏的tab id
 });
 </pre>
-  <h3>2.addPlugin</h3>
-  <pre>
+<h3>2.addPlugin</h3>
+<pre>
 mdebug.addPlugin({
     id: '', // tab id
     name: '', // tab对应的中文title,
@@ -152,8 +145,8 @@ mdebug.addPlugin({
 });
 </pre>
 
-  <h3> 3.removePlugin</h3>
-  <pre>
+<h3> 3.removePlugin</h3>
+<pre>
 // 支持移除的panel对应的id
 /*
 System => system;
@@ -167,8 +160,8 @@ Settings => settings
 mdebug.removePlugin([]);
 </pre>
 
-  <h3> 4.exportLog</h3>
-  <pre>
+<h3> 4.exportLog</h3>
+<pre>
 /*
 @returned {
   type: '' // 日志类型
@@ -181,88 +174,61 @@ mdebug.removePlugin([]);
 mdebug.exportLog(type);
 </pre>
 
-  <h3> 5.on</h3>
-  <pre>
+<h3> 5.on</h3>
+<pre>
 mdebug.on(eventName, callback);
 </pre>
-  <h3> 6.emit</h3>
-  <pre>
+<h3> 6.emit</h3>
+<pre>
 mdebug.emit(eventName, data);
 </pre>
-  <h2>五、事件列表</h2>
-  <table>
-    <thead></thead>
-    <tbody>
-      <tr>
-        <th>
-          <h4><strong>事件名称</strong> </h4>
-        </th>
-        <th>
-          <h4> <strong>数据</strong></h4>
-        </th>
-        <th>
-          <h4><strong>触发时机</strong></h4>
-        </th>
-      </tr>
-      <tr>
-        <td width="33.3%" align="center"><sub>ready</sub></td>
-        <td width="33.3%" align="center"><sub>object</sub></td>
-        <td width="33.4%" align="center"><sub>mdebug加载完毕</sub> </td>
-      </tr>
-      <tr>
-        <td width="33.3%" align="center"><sub>addTab</sub></td>
-        <td width="33.3%" align="center"><sub>object</sub></td>
-        <td width="33.4%" align="center"><sub>增加面板</sub> </td>
-      </tr>
-      <tr>
-        <td width="33.3%" align="center"><sub>removeTab</sub></td>
-        <td width="33.3%" align="center"><sub>array</sub></td>
-        <td width="33.4%" align="center"><sub>移除面板</sub> </td>
-      </tr>
-      <tr>
-        <td width="33.3%" align="center"><sub>changeTab</sub></td>
-        <td width="33.3%" align="center"><sub>object</sub></td>
-        <td width="33.4%" align="center"><sub>面板切换</sub> </td>
-      </tr>
-    </tbody>
-  </table>
-  <h2>六、开发</h2>
-  <ol>
-    <li>npm i</li>
-    <li>npm start // 启动开发</li>
-    <li>npm run build //打包</li>
-  </ol>
-  <h2>七、Articles</h2>
-  <ol>
-    <li>移动端前端开发调试</a></li>
-    <li>Chrome 开发者工具</a></li>
-  </ol>
-  <h2>八、Projects</h2>
-  <ol>
-    <li><a href="https://github.com/liriliri/eruda" rel="nofollow">eruda</a></li>
-    <li><a href="https://github.com/Tencent/vConsole" rel="nofollow">vConsole</a></li>
-    <li><a href="https://github.com/alexkuz/react-json-tree" rel="nofollow">react-json-tree</a></li>
-    <li><a href="https://github.com/abell123456/mdebug" rel="nofollow">基于React的移动端调试解决方案</a></li>
-    <li><a href="https://github.com/ghking1/mdebug" rel="nofollow">a useful debugger for mobile</a></li>
-    <li><a href="https://github.com/chokcoco/autoDevTools" rel="nofollow">autoDevTools</a></li>
-    <li><a href="https://github.com/xyc/react-inspector" rel="nofollow">react-inspector</a></li>
-    <li><a href="https://github.com/whinc/web-console" rel="nofollow">web-console</a></li>
-    <li><a href="https://github.com/ChromeDevTools/devtools-frontend" rel="nofollow">ChromeDevTools</a></li>
-  </ol>
-  <h2>九、License</h2>
-  <p>The MIT License (MIT). Please see License File for more information.</p>
-  </div>
-  </div>
-  </article>
-  </div>
-  </div>
+<h2>五、事件列表</h2>
+<table>
+  <thead></thead>
+  <tbody>
+    <tr><th><h4><strong>事件名称</strong> </h4></th><th><h4> <strong>数据</strong></h4> </th><th><h4><strong>触发时机</strong></h4>  </th></tr>
+    <tr><td width="33.3%" align="center"><sub>ready</sub></td><td width="33.3%" align="center"><sub>object</sub></td><td width="33.4%" align="center"><sub>mdebug加载完毕</sub> </td></tr>
+    <tr><td width="33.3%" align="center"><sub>addTab</sub></td><td width="33.3%" align="center"><sub>object</sub></td><td width="33.4%" align="center"><sub>增加面板</sub> </td></tr>
+    <tr><td width="33.3%" align="center"><sub>removeTab</sub></td><td width="33.3%" align="center"><sub>array</sub></td><td width="33.4%" align="center"><sub>移除面板</sub>  </td></tr>
+    <tr><td width="33.3%" align="center"><sub>changeTab</sub></td><td width="33.3%" align="center"><sub>object</sub></td><td width="33.4%" align="center"><sub>面板切换</sub> </td></tr>
+  </tbody>
+</table>
+<h2>六、开发</h2>
+<ol>
+<li>npm i</li>
+<li>npm start   // 启动开发</li>
+<li>npm run build  //打包</li>
+</ol>
+<h2>七、Articles</h2>
+<ol>
+<li>移动端前端开发调试</a></li>
+<li>Chrome 开发者工具</a></li>
+</ol>
+<h2>八、Projects</h2>
+<ol>
+<li><a href="https://github.com/liriliri/eruda" rel="nofollow">eruda</a></li>
+<li><a href="https://github.com/Tencent/vConsole" rel="nofollow">vConsole</a></li>
+<li><a href="https://github.com/alexkuz/react-json-tree" rel="nofollow">react-json-tree</a></li>
+<li><a href="https://github.com/abell123456/mdebug" rel="nofollow">基于React的移动端调试解决方案</a></li>
+<li><a href="https://github.com/ghking1/mdebug" rel="nofollow">a useful debugger for mobile</a></li>
+<li><a href="https://github.com/chokcoco/autoDevTools" rel="nofollow">autoDevTools</a></li>
+<li><a href="https://github.com/xyc/react-inspector" rel="nofollow">react-inspector</a></li>
+<li><a href="https://github.com/whinc/web-console" rel="nofollow">web-console</a></li>
+<li><a href="https://github.com/ChromeDevTools/devtools-frontend" rel="nofollow">ChromeDevTools</a></li>
+</ol>
+<h2>九、License</h2>
+<p>The MIT License (MIT). Please see License File for more information.</p>
+</div></div>
+</article>
+</div>
+</div>
 
-  </div>
-  </div>
-  </div>
+</div>
+</div>
+</div>
   <audio src="https://baidu.com"></audio>
   <video src="https://baidu.com"></video>
-  <img src="https://sinaimg.cn/mw690/0065AuX8ly1fr47ztrszbj30og1cwdwv.jpg" style="visibility: hidden;" />
+  <img src="https://sinaimg.cn/mw690/0065AuX8ly1fr47ztrszbj30og1cwdwv.jpg" style="visibility: hidden;"/>
   <script src="https://sinaimg.cn/mw690/0065AuX8ly1fr47ztrszbj30og1cwdwv.jpg"></script>
   <script src="https://sinaimg.cn/mw690/0065AuX8ly1fr47ztrszbj30og1cwdwv.jpg"></script>
   <script charset="utf-8">
@@ -289,11 +255,11 @@ mdebug.emit(eventName, data);
         .catch(function (err) {
           console.warn('err::::', err);
         });
-      console.log(_xhr);
+        console.log(_xhr);
       var ws = new WebSocket("wss://echo.websocket.org");
 
-      ws.onopen = function (evt) {
-        ws.send(JSON.stringify({ a: 1 }));
+      ws.onopen = function(evt) { 
+        ws.send(JSON.stringify({a: 1}));
         setTimeout(() => {
           ws.send('timeout send message')
           setTimeout(() => {
@@ -307,12 +273,15 @@ mdebug.emit(eventName, data);
       test();
     }
     console.log('111', 11);
+    // }
   </script>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
+
       You can add webfonts, meta tags, or analytics to this file.
       The build step will place the bundled scripts into the <body> tag.
+
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
