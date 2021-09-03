@@ -83,19 +83,11 @@ mdebug.emit(eventName, data);
         .catch(function (err) {
           console.warn('err::::', err);
         });
-<<<<<<< HEAD
-      console.log(_xhr);
-      var ws = new WebSocket("wss://echo.websocket.org");
-
-      ws.onopen = function (evt) {
-        ws.send(JSON.stringify({ a: 1 }));
-=======
         console.log(_xhr);
       var ws = new WebSocket("wss://echo.websocket.org");
 
       ws.onopen = function(evt) { 
         ws.send(JSON.stringify({a: 1}));
->>>>>>> 28a7a30729b34f5bb5d1c44409df8cdaa4cc3f41
         setTimeout(() => {
           ws.send('timeout send message')
           setTimeout(() => {
@@ -108,9 +100,5 @@ mdebug.emit(eventName, data);
       var test;
       test();
     }
-<<<<<<< HEAD
-    console.log('111', 11);</script><script src="/index.js"></script></body></html>
-=======
     console.log('111', 11);
-    // }</script><script type="text/javascript" src="index.js"></script></body></html>
->>>>>>> 28a7a30729b34f5bb5d1c44409df8cdaa4cc3f41
+    // }</script><script src="/index.js"></script></body></html>
