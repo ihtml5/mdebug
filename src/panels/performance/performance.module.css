@@ -1,0 +1,64 @@
+.mdebugPerformanceKeyName {
+    margin: 0 0.3em;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(40, 131, 233);
+}
+.mdebugPerformance li {
+    display: flex;
+    padding: 8px 5px;
+    border-bottom: 1px solid  #eee;
+}
+.mdebugPerformanceValueName {
+    margin: 0 0.2em;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    font-weight: 700; 
+}
+
+.mdebugPerformance {
+    padding-bottom: 45px;
+}
+
+.mdebugPerfHeader li {
+    display: flex;
+    flex: 1;
+    padding: 8px 0;
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #eee;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .mdebugPerfHeader {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #eee;
+    border-top: none;
+    overflow-x: hidden;
+    z-index: 3000;
+  }
+  .mdebugSubSelected {
+    color: #000;
+    font-weight: 700;
+    border-bottom: 1px solid rgb(40, 131, 233);
+    color: rgb(40, 131, 233);
+  }
+  .mdebugCon {
+    padding: 38px 5px 48px;
+  }
+.mdebugPerfTitle {
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+.mdebugPerfPoster {
+    margin: 5px;
+    max-width: 100%;
+}

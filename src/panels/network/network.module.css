@@ -1,0 +1,141 @@
+.mdebugNetWorkTable {
+    table-layout: fixed;
+    width: 100%;
+    padding-bottom: 60px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.mdebugNetWorkHeaderWrap {
+    position: fixed;
+    width: 100%;
+    z-index: 3000;
+}
+.mdebugNetWorkTable td {
+    text-align: left;
+    padding: 5px;
+    word-break: break-all;
+}
+.mdebugNetWorkTable > li:first-of-type {
+    margin-top: 61px;
+}
+.mdebugNetWorkHeader {
+    width: 100%;
+    display: flex;
+    color: rgb(40, 131, 233);
+    font-size: 12px;
+    border: 1px solid #eee;
+    border-top: none;
+    background-color: #fff;
+    font-weight: 700;
+}
+.mdebugNetWorkHeader div {
+    display: flex;
+    text-align: center;
+    border-right: 1px solid #eee;
+    padding: 7px 0;
+    justify-items: center;
+    align-items: center;
+}
+.mdebugNetWorkData {
+    display: flex;
+    color: #000;
+    font-size: 12px;
+    border-bottom: 1px solid #eee;
+}
+div.mdebugNetWorkFixed {
+    display: flex;
+    width: 180px;
+    word-break: break-all;
+    align-items: center;
+    justify-items: center;
+    padding: 3px;
+}
+.mdebugNetWorkCenter {
+    display: flex;
+    text-align: center;
+    flex: 1;
+    word-break: break-all;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in 0.3s;
+}
+.mdebugNetWorkDataDetail {
+    padding: 10px 5px;
+}
+.mdebugNetWorkDataDetail li {
+    display: flex;
+    color: rgb(40, 131, 233);
+    padding: 3px;
+}
+.mdebugNetWorkDataDetailNk {
+    width: auto;
+    margin-right: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+.mdebugNetWorkDataDetailNd {
+    flex: 1;
+    line-height: 1.5;
+}
+.mdebugInputWrap {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+.mdbugNetworkInputWrap {
+    width: 50%;
+    background-color: #eee;
+    padding: 3px 5px;
+}
+.mdebugNetworkInput {
+    width: 100%;
+    font-size: 12px;
+    height: 24px;
+    border: none;
+    outline:none;
+    border-radius: 0;
+    background-color: #fff;
+    text-indent: 0.5em;
+}
+input.mdebugNetworkInput:focus {   
+	border: 1px solid rgb(40, 131, 233);
+}
+.mdbugTagWrap {
+    height: 30px;
+    flex: 1;
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid #eee;
+}
+.mdbugTagWrap::-webkit-scrollbar {
+    display: none;
+}
+.mdbugTagItem {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0 8px;
+    border-right: 1px solid #ddd;
+}
+.mdbugTagItem.isActive {
+    color: rgb(40, 131, 233);
+    border-bottom: 1px solid rgb(40, 131, 233);
+    font-weight: 700;
+    cursor: pointer;
+}
+.mdbugTagItem:last-of-type {
+    border-right: none;
+}
+.networkName {
+    color: rgb(40, 131, 233);
+}
+.imgDesc {
+    max-width: 40%;
+}
+.mdebugLoding {
+    padding-top: 80px;
+    text-align: center;
+}

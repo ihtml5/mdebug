@@ -1,0 +1,8 @@
+{
+  "files": {
+    "main.js": "/index.js",
+    "index.html": "/index.html",
+    "precache-manifest.88927de79517917951433fdfda57992d.js": "/precache-manifest.88927de79517917951433fdfda57992d.js",
+    "service-worker.js": "/service-worker.js"
+  }
+}

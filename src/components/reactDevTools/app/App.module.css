@@ -1,0 +1,114 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--color-dimmer);
+  font-family: var(--font-family-sans);
+  font-size: var(--comfortable-font-size-sans-normal);
+}
+
+@media (max-width: 800px) {
+  .App {
+    flex-direction: column;
+  }
+}
+
+.Left {
+  flex: 1 0 250px;
+  color: var(--color-text);
+  overflow: auto;
+  background-color: var(--color-background);
+
+  border-radius: 0.25rem;
+
+  line-height: 1.5;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.LeftTop {
+  background-color: var(--color-background-selected);
+  color: var(--color-text-selected);
+  padding: 0.5rem 1rem;
+  flex: 0 0 auto;
+}
+
+.LeftTopHeader {
+  font-weight: normal;
+  font-size: var(--comfortable-font-size-sans-large);
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.LeftMiddle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+  background-color: var(--color-selected-tree-highlight-active);
+  color: var(--color-dimmer);
+}
+
+.LeftMiddleLink {
+  flex: 0 0 auto;
+  color: var(--color-component-name);
+  text-decoration: none;
+}
+.LeftMiddleLink:hover {
+  text-decoration: underline;
+}
+
+.LeftBottom {
+  padding: 0.5rem 1rem;
+  flex: 1 1;
+  overflow: auto;
+}
+
+.LeftBottom code {
+  font-size: 14px;
+
+  font-family: var(--font-family-monospace);
+  font-size: var(--comfortable-font-size-monospace-normal);
+}
+
+.LeftBottom a code,
+.LeftBottom a {
+  color: var(--color-component-name);
+}
+
+.LeftBottom p {
+  margin: 0 0 1rem;
+}
+
+.LeftBottom details {
+  margin: 0 0 1rem;
+}
+
+.LeftBottom ul {
+  padding: 0;
+}
+
+.LeftBottom ul li {
+  list-style: none;
+}
+
+.Spacer {
+  flex: 0 0 0.5rem;
+}
+
+.Right {
+  flex: 2 1 300px;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.ReactIcon {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
