@@ -24,6 +24,7 @@ import { addNetworkLog } from '@/utils/network';
 import { updateTab, filterTab } from './reducers/tab';
 
 const { trigger: emit, on, off } = emitter;
+const documentHeight = document.documentElement.clientHeight;
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class App extends Component {
         x: 0,
         y: 0,
       },
+      mdebugHeight: documentHeight * 0.4 + 'px',
     };
     this.updatePlugin = this.updatePlugin.bind(this);
   }
@@ -114,7 +116,7 @@ class App extends Component {
     off('removePlugin', pluginId => this.removePlugin(pluginId));
   }
   render() {
-    const { plugins = [], isDraging, deltaPosition } = this.state;
+    const { plugins = [], isDraging, deltaPosition, mdebugHeight } = this.state;
     const { mdevtools, onShowDebug, options = {}, dispatch = noop, globalState = {} } = this.props;
     const { showDebug } = mdevtools;
     const { containerId = '' } = options || {};
@@ -189,7 +191,18 @@ class App extends Component {
             className={styles.mdebug}
             style={{
               display: showDebug ? 'block' : 'none',
+              height: mdebugHeight,
             }}>
+            <Draggable
+              axis="y"
+              bounds={{ bottom: 0, top: 0, left: 0, right: 0 }}
+              onDrag={(e, ui) => {
+                this.setState({
+                  mdebugHeight: documentHeight - e.clientY + 'px',
+                });
+              }}>
+              <div className={styles.mdebugResize}></div>
+            </Draggable>
             <Header options={options} />
             <PanelCon id={'mdebugSystem'}>
               <System />
