@@ -21,7 +21,7 @@ import { sessionLog } from '@/constants';
 import { clearProxyRules } from '@/utils/url';
 import Draggable from 'react-draggable';
 import { addNetworkLog } from '@/utils/network';
-import DevTool from '@/components/reactDevTools';
+import ReactDevTool from '@/components/reactDevTools';
 import { updateTab, filterTab } from './reducers/tab';
 
 const { trigger: emit, on, off } = emitter;
@@ -43,10 +43,9 @@ class App extends Component {
     const { plugins = [] } = this.state;
     const { id, name, enName, component } = plugin;
     // 判断是否是合格的插件
-    const isValidPlugin =
-      id && name && enName && typeof component === 'function';
+    const isValidPlugin = id && name && enName && typeof component === 'function';
     // 判断插件是否已经加载过
-    const isLoaded = plugins.some((plug) => plug.id === id);
+    const isLoaded = plugins.some(plug => plug.id === id);
     if (isValidPlugin && !isLoaded) {
       const tabs = [plugin];
       onUpdateTab(tabs);
@@ -69,10 +68,9 @@ class App extends Component {
     // 更新tabs
     const loadedPlugins = Array.isArray(plugins)
       ? plugins
-          .map((plugin) => {
+          .map(plugin => {
             const { id, name, enName, component } = plugin;
-            const isValidPlugin =
-              id && name && enName && typeof component === 'function';
+            const isValidPlugin = id && name && enName && typeof component === 'function';
             return isValidPlugin
               ? {
                   id,
@@ -82,14 +80,14 @@ class App extends Component {
                 }
               : undefined;
           })
-          .filter((plugin) => plugin)
+          .filter(plugin => plugin)
       : false;
     this.setState({
       plugins,
     });
 
     if (loadedPlugins && loadedPlugins.length > 0) {
-      const tabs = loadedPlugins.map((loadedPlugin) => {
+      const tabs = loadedPlugins.map(loadedPlugin => {
         const { id, name, enName } = loadedPlugin;
         return {
           id,
@@ -101,10 +99,10 @@ class App extends Component {
       emit('addTab', { tabs });
     }
     // 绑定监听事件
-    on('network', (data) => addNetworkLog(data));
-    on('console', (data) => sessionLog.push(data));
-    on('addPlugin', (plugin) => this.updatePlugin(plugin));
-    on('removePlugin', (pluginId) => this.removePlugin(pluginId));
+    on('network', data => addNetworkLog(data));
+    on('console', data => sessionLog.push(data));
+    on('addPlugin', plugin => this.updatePlugin(plugin));
+    on('removePlugin', pluginId => this.removePlugin(pluginId));
     on('clearproxy', () => {
       clearProxyRules();
     });
@@ -113,18 +111,12 @@ class App extends Component {
     // 绑定监听事件
     off('network');
     off('console');
-    off('addPlugin', (plugin) => this.updatePlugin(plugin));
-    off('removePlugin', (pluginId) => this.removePlugin(pluginId));
+    off('addPlugin', plugin => this.updatePlugin(plugin));
+    off('removePlugin', pluginId => this.removePlugin(pluginId));
   }
   render() {
     const { plugins = [], isDraging, deltaPosition } = this.state;
-    const {
-      mdevtools,
-      onShowDebug,
-      options = {},
-      dispatch = noop,
-      globalState = {},
-    } = this.props;
+    const { mdevtools, onShowDebug, options = {}, dispatch = noop, globalState = {} } = this.props;
     const { showDebug } = mdevtools;
     const { containerId = '' } = options || {};
     return (
@@ -170,14 +162,12 @@ class App extends Component {
                   y: y + ui.deltaY,
                 },
               });
-            }}
-          >
+            }}>
             <div
               className={styles.mdebugBtn}
               style={{
                 display: !showDebug ? undefined : 'none',
-              }}
-            >
+              }}>
               mdebug
             </div>
           </Draggable>
@@ -186,8 +176,7 @@ class App extends Component {
           className={`${styles.mdebugCon} ${containerId}`}
           style={{
             display: !showDebug ? 'none' : undefined,
-          }}
-        >
+          }}>
           {showDebug ? <LockScroll /> : null}
           <div
             className={showDebug ? styles.mdebugMask : styles.mdebugMaskNone}
@@ -201,8 +190,7 @@ class App extends Component {
             className={styles.mdebug}
             style={{
               display: showDebug ? 'block' : 'none',
-            }}
-          >
+            }}>
             <Header options={options} />
             <PanelCon id={'mdebugSystem'}>
               <System />
@@ -226,7 +214,7 @@ class App extends Component {
               <Detection />
             </PanelCon>
             <PanelCon id={'mdebugReact'}>
-              <DevTool />
+              <ReactDevTool />
             </PanelCon>
             <PanelCon id={'mdebugPerformance'}>
               <Mperformance />
@@ -235,7 +223,7 @@ class App extends Component {
               <ProxyAPI />
             </PanelCon>
             {Array.isArray(plugins) &&
-              plugins.map((plugin) => {
+              plugins.map(plugin => {
                 const { id, name, enName } = plugin;
                 const PluginComponent = plugin.component;
                 return (
@@ -255,26 +243,23 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     mdevtools: state.settings.mdevtools,
     globalState: { ...state },
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onShowDebug: (data) => {
+    onShowDebug: data => {
       const { showDebug } = data || {};
       dispatch(setMdevTools(data));
       emit(showDebug ? 'show' : 'hide');
     },
-    onUpdateTab: (data) => dispatch(updateTab(data)),
-    onRemoveTab: (data) => dispatch(filterTab(data)),
+    onUpdateTab: data => dispatch(updateTab(data)),
+    onRemoveTab: data => dispatch(filterTab(data)),
     dispatch,
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
