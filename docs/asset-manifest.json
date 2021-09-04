@@ -1,7 +1,6 @@
 {
   "files": {
     "main.js": "/index.js",
-    "index.html": "/index.html",
-    "index.js.LICENSE.txt": "/index.js.LICENSE.txt"
+    "index.html": "/index.html"
   }
 }

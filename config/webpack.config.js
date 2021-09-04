@@ -23,6 +23,7 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const postcssNormalize = require('postcss-normalize');
+const pkg = require('../package.json');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = false;
@@ -169,6 +170,8 @@ module.exports = function(webpackEnv) {
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
+          // https://webpack.docschina.org/plugins/terser-webpack-plugin/#extractcomments
+          extractComments: false,
           terserOptions: {
             parse: {
               // we want terser to parse ecma 8 code. However, we don't want it
@@ -198,6 +201,7 @@ module.exports = function(webpackEnv) {
             output: {
               ecma: 5,
               comments: false,
+              preamble: `// v${pkg.version} ${new Date()} by Mdebug Team. Released under the MIT License.`,
               // Turned on because emoji and regex is not minified properly using default
               // https://github.com/facebook/create-react-app/issues/2488
               ascii_only: true,

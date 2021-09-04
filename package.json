@@ -67,7 +67,6 @@
     "react-draggable": "^4.4.3",
     "react-inspector": "^2.3.0",
     "react-redux": "^5.0.7",
-    "react-scripts": "^4.0.3",
     "redux": "^4.0.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
