@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import styles from '@/App.module.css';
 import { Header, PanelCon } from '@/modules';
 import Applicaton from '@/modules/application';
-import Settings from '@/panels/settings';
+import About from '@/panels/about';
+import Settings from '@/modules/settings';
 import Elements from '@/panels/elements';
 import Detection from '@/panels/detection';
 import ProxyAPI from '@/modules/proxy';
@@ -22,10 +23,11 @@ import { clearProxyRules } from '@/utils/url';
 import Draggable from 'react-draggable';
 import { addNetworkLog } from '@/utils/network';
 import ReactDevTool from '@/components/reactDevTools';
+import { getClientInfo } from '@/utils/dimension';
 import { updateTab, filterTab } from './reducers/tab';
 
 const { trigger: emit, on, off } = emitter;
-
+const documentHeight = getClientInfo().height;
 class App extends Component {
   constructor(props) {
     super(props);
@@ -116,8 +118,14 @@ class App extends Component {
   }
   render() {
     const { plugins = [], isDraging, deltaPosition } = this.state;
-    const { mdevtools, onShowDebug, options = {}, dispatch = noop, globalState = {} } = this.props;
-    const { showDebug } = mdevtools;
+    const {
+      mdevtools,
+      updateSettings,
+      options = {},
+      dispatch = noop,
+      globalState = {},
+    } = this.props;
+    const { showDebug, heightRatio, enableReactDevTools } = mdevtools;
     const { containerId = '' } = options || {};
     return (
       <Fragment>
@@ -145,7 +153,7 @@ class App extends Component {
                 },
                 () => {
                   if (!isNoMouseDown) {
-                    onShowDebug({
+                    updateSettings({
                       showDebug: isDraging ? false : true,
                     });
                   }
@@ -181,7 +189,7 @@ class App extends Component {
           <div
             className={showDebug ? styles.mdebugMask : styles.mdebugMaskNone}
             onClick={() =>
-              onShowDebug({
+              updateSettings({
                 showDebug: false,
               })
             }
@@ -190,8 +198,19 @@ class App extends Component {
             className={styles.mdebug}
             style={{
               display: showDebug ? 'block' : 'none',
+              height: `${heightRatio * documentHeight}px`,
             }}>
-            <Header options={options} />
+            <Draggable
+              axis="y"
+              bounds={{ bottom: 0, top: 0, left: 0, right: 0 }}
+              onDrag={(e, ui) => {
+                updateSettings({
+                  heightRatio: (documentHeight - e.clientY) / documentHeight,
+                });
+              }}>
+              <div className={styles.mdebugResize}></div>
+            </Draggable>
+            <Header options={options} enableReactDevTools={enableReactDevTools}/>
             <PanelCon id={'mdebugSystem'}>
               <System />
             </PanelCon>
@@ -207,15 +226,20 @@ class App extends Component {
             <PanelCon id={'mdebugApplication'}>
               <Applicaton />
             </PanelCon>
+            <PanelCon id={'mdebugAbout'}>
+              <About />
+            </PanelCon>
             <PanelCon id={'mdebugSettings'}>
               <Settings />
             </PanelCon>
             <PanelCon id={'mdebugDetection'}>
               <Detection />
             </PanelCon>
-            <PanelCon id={'mdebugReact'}>
-              <ReactDevTool />
-            </PanelCon>
+            {enableReactDevTools && (
+              <PanelCon id={'mdebugReact'}>
+                <ReactDevTool />
+              </PanelCon>
+            )}
             <PanelCon id={'mdebugPerformance'}>
               <Mperformance />
             </PanelCon>
@@ -252,7 +276,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onShowDebug: data => {
+    updateSettings: data => {
       const { showDebug } = data || {};
       dispatch(setMdevTools(data));
       emit(showDebug ? 'show' : 'hide');

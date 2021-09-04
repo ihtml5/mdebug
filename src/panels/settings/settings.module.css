@@ -13,3 +13,33 @@
   color: #333;
   text-decoration: none;
 }
+.mdebugSettingsAction {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+.mdebugSettingsTitle {
+    position: relative;
+    top: -1px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.mdebugSettingsDetail {
+    position: relative;
+    top: -1px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.mdebugSettingsTips {
+    color: #333;
+    position: relative;
+    top: -1px;
+    margin-right: 10px;
+    font-size: 14px;
+}

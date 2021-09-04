@@ -4,9 +4,6 @@ import styles from './pannel.module.css';
 
 const Panel = props => {
   const { isActive, children, id } = props;
-  if (id === 'react') {
-    return null;
-  }
   if (isActive) {
     return (
       <Protector name={id}>
