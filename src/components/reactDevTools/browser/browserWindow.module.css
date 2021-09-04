@@ -58,9 +58,6 @@
   padding-left: 15px;
 }
 
-.BrowserButton {
-}
-
 .BrowserMenuRight {
   display: inline-block;
   widows: 30px;
@@ -122,12 +119,6 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.Frame {
-  width: 100%;
-  flex: 0 0 150px;
-  border: 0;
-}
-
 .DevTools {
   width: 100%;
   flex: 1 0 200px;
@@ -144,4 +135,10 @@
 .ReactIcon {
   display: inline-block;
   margin-right: 0.5rem;
+}
+
+.offscreenIframe {
+  position: fixed;
+  left: -10000px;
+  bottom: -10000px;
 }

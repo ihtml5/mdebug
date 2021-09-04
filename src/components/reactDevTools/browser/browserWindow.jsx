@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import DevTools from './DevTools';
+import DevTools from './devTools';
 
 import styles from './browserWindow.module.css';
 
@@ -16,14 +16,9 @@ export default function FakeBrowserWindow({
       <div className={styles.BrowserWindow}>
         <div className={styles.BrowserContent}>
           <iframe
-            style={{
-              position: 'fixed',
-              left: -10000,
-              bottom: -10000,
-            }}
             key={iframeSource}
             ref={iframeRef}
-            className={styles.Frame}
+            className={styles.offscreenIframe}
             title="mdebug-devtools"
             src={window.location.href}></iframe>
           <div className={styles.TabBar}>
