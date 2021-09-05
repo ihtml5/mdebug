@@ -78,6 +78,12 @@ div.mdebugNetWorkFixed {
     flex: 1;
     line-height: 1.5;
 }
+.mdebugNetWorkDataDetailNd li {
+    display: block;
+}
+.mdebugNetWorkDataDetailNd li ol {
+    padding-left: 0 !important;
+}
 .mdebugInputWrap {
     display: flex;
     align-items: center;
@@ -98,7 +104,7 @@ div.mdebugNetWorkFixed {
     background-color: #fff;
     text-indent: 0.5em;
 }
-input.mdebugNetworkInput:focus {   
+input.mdebugNetworkInput:focus {
 	border: 1px solid rgb(40, 131, 233);
 }
 .mdbugTagWrap {
