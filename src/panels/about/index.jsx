@@ -13,7 +13,7 @@ class About extends PureComponent {
         <p>
           author: <a href="https://github.com/ihtml5">云峰</a>
         </p>
-        <p>version: 2.0.0</p>
+        <p>version: 2.0.1</p>
       </div>
     );
   }
