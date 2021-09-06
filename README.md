@@ -14,7 +14,7 @@
   </tr>
   <tr>
     <td width="20%" align="center"><sub>使用cdn方式,一键接入</sub></td>
-    <td width="20%" align="center"><sub>类Chrome devtools, 内嵌React开发者工具,支持日志,网络,元素,代理,存储,性能等, 具有更好的网络捕获能力和丰富的日志展现形式</sub></td>
+    <td width="20%" align="center"><sub>类Chrome devtools, <strong>内嵌React开发者工具</strong>,支持日志,网络,元素,代理,存储,性能等, 具有更好的网络捕获能力和丰富的日志展现形式</sub></td>
     <td width="20%" align="center"><sub>暴露内部丰富的事件, 可以和react组件无缝进行集成</td>
     <td width="20%" align="center"><sub>支持大数据量展示, 不卡顿</td>
   </tr>

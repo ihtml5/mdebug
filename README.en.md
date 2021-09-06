@@ -13,7 +13,7 @@ English | [简体中文](./README.md)
   </tr>
   <tr>
     <td width="20%" align="center"><sub>Use the cdn method, one-click access</sub></td>
-    <td width="20%" align="center"><sub>Chrome devtools-like, built-in React developer tools, support log, network, element, proxy, storage, performance, etc., have better network capture capabilities and rich log display forms</sub></td>
+    <td width="20%" align="center"><sub>Chrome devtools-like, <strong>built-in React developer tools</strong>, support log, network, element, proxy, storage, performance, etc., have better network capture capabilities and rich log display forms</sub></td>
     <td width="20%" align="center"><sub>Expose rich internal events, which can be seamlessly integrated with react components</td>
     <td width="20%" align="center"><sub>Support large amount of data display, no lag</td>
   </tr>
