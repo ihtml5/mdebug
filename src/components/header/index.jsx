@@ -9,14 +9,15 @@ class Header extends PureComponent {
     };
   }
   render() {
-    const { tabs, onSelectTab, curTab = {}, options } = this.props;
+    const { tabs, onSelectTab, curTab = {}, options, enableReactDevTools } = this.props;
     const { currentIndex } = curTab;
     const { hideToolbar = ['custom'] } = options || {};
+    const hideNewToolbar = !enableReactDevTools ? [...hideToolbar, 'react'] : hideToolbar;
     return (
       <Fragment>
         <ul className={styles['mdebug-header']}>
           {tabs
-            .filter(tab => !tab.alias || hideToolbar.indexOf(tab.alias) < 0)
+            .filter(tab => !tab.alias || hideNewToolbar.indexOf(tab.alias) < 0)
             .map((source, index) => (
               <li
                 key={source.name}

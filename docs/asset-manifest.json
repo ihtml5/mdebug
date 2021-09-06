@@ -1,4 +1,6 @@
 {
-  "main.js": "/index.js",
-  "index.html": "/index.html"
+  "files": {
+    "main.js": "/index.js",
+    "index.html": "/index.html"
+  }
 }

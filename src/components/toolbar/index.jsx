@@ -20,20 +20,21 @@ class ToolBar extends PureComponent {
       return String(value);
     }
   }
-  componentWillUnMount() {
+  componentWillUnmount() {
     const { tabInfo = {} } = this.props;
     const { curTab = {} } = tabInfo || {};
     const { enName = '' } = curTab || {};
     off(`${enName}Add`);
   }
   render() {
-    const { onShowDebug, tabInfo = {}, options = {} } = this.props;
+    const { updateSettings, tabInfo = {}, options = {} } = this.props;
     const { curTab = {} } = tabInfo || {};
     const { enName = '' } = curTab || {};
     const { exportToolBar = [], addToolBar = ['proxy'] } = options || {};
     const canExport =
       Array.isArray(exportToolBar) && exportToolBar.indexOf(enName.toLowerCase()) !== -1;
     const canAdd = Array.isArray(addToolBar) && addToolBar.indexOf(enName.toLowerCase()) !== -1;
+    const canOk = enName.toLowerCase() === 'settings';
     return (
       <div className={styles.mdebugtoolbarcon}>
         <ul className={styles.mdebugtoolbar}>
@@ -50,9 +51,10 @@ class ToolBar extends PureComponent {
             </li>
           )}
           {canAdd && <li onClick={() => emit(`${enName.toLowerCase()}Add`)}>Add</li>}
+          {canOk && <li onClick={() => emit(`${enName.toLowerCase()}Ok`)}>Confirm</li>}
           <li
             onClick={() =>
-              onShowDebug({
+              updateSettings({
                 showDebug: false,
               })
             }>

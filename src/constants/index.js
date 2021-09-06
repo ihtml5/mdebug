@@ -6,7 +6,7 @@ export const TABS = [
     alias: 'system',
   },
   {
-    name: 'Elements',
+    name: '元素',
     enName: 'Elements',
     id: 'mdebugElements',
     alias: 'elements',
@@ -18,40 +18,52 @@ export const TABS = [
     alias: 'console',
   },
   {
-    name: 'Network',
+    name: '网络',
     enName: 'Network',
     id: 'mdebugNetwork',
     alias: 'network',
   },
   {
-    name: 'Application',
+    name: '存储',
     enName: 'Application',
     id: 'mdebugApplication',
     alias: 'application',
   },
   {
-    name: 'Detection',
+    name: 'React',
+    enName: 'React',
+    id: 'mdebugReact',
+    alias: 'react',
+  },
+  {
+    name: '检测',
     enName: 'Detection',
     id: 'mdebugDetection',
     alias: 'detection',
   },
   {
-    name: 'Proxy',
-    enName: 'Proxy',
-    id: 'mdebugProxy',
-    alias: 'proxy',
-  },
-  {
-    name: 'Performance',
+    name: '性能',
     enName: 'Performance',
     id: 'mdebugPerformance',
     alias: 'performance',
   },
   {
-    name: 'Settings',
+    name: '代理',
+    enName: 'Proxy',
+    id: 'mdebugProxy',
+    alias: 'proxy',
+  },
+  {
+    name: '设置',
     enName: 'Settings',
     id: 'mdebugSettings',
     alias: 'settings',
+  },
+  {
+    name: '关于',
+    enName: 'About',
+    id: 'mdebugAbout',
+    alias: 'about',
   },
 ];
 

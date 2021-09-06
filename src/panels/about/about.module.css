@@ -1,0 +1,15 @@
+.mdebugAbout {
+  padding: 10px 5px 50px;
+}
+.mdebugAbout h3 {
+  margin-bottom: 5px;
+  color: #0052d9;
+}
+.mdebugAbout p {
+  margin-bottom: 5px;
+  color: #333;
+}
+.mdebugAbout p a {
+  color: #333;
+  text-decoration: none;
+}

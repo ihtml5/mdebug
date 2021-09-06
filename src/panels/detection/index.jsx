@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { memo } from 'react';
 import { Features } from '@/constants/feature';
 import styles from './detection.module.css';
 import feature from 'feature.js';

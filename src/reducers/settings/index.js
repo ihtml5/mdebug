@@ -17,6 +17,7 @@ const setSettings = (
   state = {
     mdevtools: {
       showDebug: __DEV__,
+      height: 0.4,
     },
   },
   action = {},

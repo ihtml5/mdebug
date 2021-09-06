@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onShowDebug: data => dispatch(setMdevTools(data)),
+    updateSettings: data => dispatch(setMdevTools(data)),
     onKeywords: data => dispatch(setKeywords(data)),
   };
 };

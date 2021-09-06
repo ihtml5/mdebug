@@ -89,3 +89,11 @@ export const filterCgiResp = curResponseText => {
   });
   return { bizcode, bizmsg };
 };
+
+export const jsonParse = str => {
+  try {
+    return JSON.parse(str);
+  } catch (err) {
+    return false;
+  }
+};

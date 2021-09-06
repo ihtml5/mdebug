@@ -6,7 +6,7 @@ const fs = require('fs');
  * @param { direct：Boolean } （是否需要处理地址）
  */
 function deleteFile(origDelPath, direct) {
-  const delPath = direct ? origDelPath : path.join(__dirname, delPath);
+  const delPath = direct ? origDelPath : path.join(__dirname, origDelPath);
   try {
     /**
      * @des 判断文件或文件夹是否存在
