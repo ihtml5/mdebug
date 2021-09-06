@@ -3,7 +3,7 @@ English | [简体中文](./README.md)
 <img src="https://user-images.githubusercontent.com/6822604/130725631-dde49c00-24fe-44c6-a3fd-a5c709ce6e57.png" width="40%"/>
 </h1>
 
-<p align="center" style="margin: 30px 0 0px;">A Lightweight, Easy To Extend Web Debugging Tool Build With React</p>
+<p align="center" style="margin: 30px 0 0px;">A Lightweight, Easy To Extend Web Debugging Tool Build With React  <a href="https://github.com/tnfe/mdebug/blob/master/CHANGELOG.EN.md">CHANGELOG</a></p>
 <table>
   <tr>
     <th><h4 align="center"><h4 align="center">Easy to use</h4 align="center"></th>
@@ -13,7 +13,7 @@ English | [简体中文](./README.md)
   </tr>
   <tr>
     <td width="20%" align="center"><sub>Use the cdn method, one-click access</sub></td>
-    <td width="20%" align="center"><sub>Similar to Chrome devtools, supports log, network, storage, performance, etc., has better network capture capabilities and rich log display</sub></td>
+    <td width="20%" align="center"><sub>Chrome devtools-like, built-in React developer tools, support log, network, element, proxy, storage, performance, etc., have better network capture capabilities and rich log display forms</sub></td>
     <td width="20%" align="center"><sub>Expose rich internal events, which can be seamlessly integrated with react components</td>
     <td width="20%" align="center"><sub>Support large amount of data display, no lag</td>
   </tr>

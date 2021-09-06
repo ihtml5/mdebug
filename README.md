@@ -3,7 +3,8 @@
 <img src="https://user-images.githubusercontent.com/6822604/130725631-dde49c00-24fe-44c6-a3fd-a5c709ce6e57.png" width="40%"/>
 </h1>
 
-<p align="center" style="margin: 30px 0 0px;">基于React开发的移动web调试工具</p>
+<p align="center" style="margin: 30px 0 0px;">基于React开发的移动web调试工具   <a href="https://github.com/tnfe/mdebug/blob/master/CHANGELOG.md">更新日志</a></p>
+
 <table>
   <tr>
     <th><h4 align="center"><h4 align="center">简单易用</h4 align="center"></th>
@@ -13,7 +14,7 @@
   </tr>
   <tr>
     <td width="20%" align="center"><sub>使用cdn方式,一键接入</sub></td>
-    <td width="20%" align="center"><sub>类Chrome devtools, 支持日志,网络,存储,性能等, 具有更好的网络捕获能力和丰富的日志展现形式</sub></td>
+    <td width="20%" align="center"><sub>类Chrome devtools, 内嵌React开发者工具,支持日志,网络,元素,代理,存储,性能等, 具有更好的网络捕获能力和丰富的日志展现形式</sub></td>
     <td width="20%" align="center"><sub>暴露内部丰富的事件, 可以和react组件无缝进行集成</td>
     <td width="20%" align="center"><sub>支持大数据量展示, 不卡顿</td>
   </tr>

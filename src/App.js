@@ -37,6 +37,7 @@ class App extends Component {
         x: 0,
         y: 0,
       },
+      mdebugHeight: documentHeight * 0.4 + 'px',
     };
     this.updatePlugin = this.updatePlugin.bind(this);
   }
@@ -210,7 +211,7 @@ class App extends Component {
               }}>
               <div className={styles.mdebugResize}></div>
             </Draggable>
-            <Header options={options} enableReactDevTools={enableReactDevTools}/>
+            <Header options={options} enableReactDevTools={enableReactDevTools} />
             <PanelCon id={'mdebugSystem'}>
               <System />
             </PanelCon>

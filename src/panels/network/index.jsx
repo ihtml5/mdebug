@@ -6,7 +6,8 @@ import styles from './network.module.css';
 import MdebugPrinter from '@/components/printer';
 import { change } from '@/utils/console';
 import { fixLink } from '@/utils/url';
-import { Inspector } from 'react-inspector'
+import { jsonParse } from '@/utils';
+import { Inspector } from 'react-inspector';
 
 const { on, off } = emitter;
 
@@ -71,13 +72,18 @@ class NetWork extends PureComponent {
     if (name === 'headers') {
       return {
         name,
-        value: <Inspector data={value} style={{display: 'block'}}/>,
+        value: <Inspector data={value} style={{ display: 'block' }} />,
       };
     }
     if (name === 'response') {
+      const parsedValue = jsonParse(value);
       return {
         name,
-        value: <Inspector data={JSON.parse(value)}/>,
+        value: parsedValue ? (
+          <Inspector data={parsedValue} />
+        ) : (
+          <ShowMore textColor={'#000'}>{this.stringify(value)}</ShowMore>
+        ),
       };
     }
     return {
@@ -86,7 +92,6 @@ class NetWork extends PureComponent {
     };
   }
   formateName({ key, data }) {
-
     if (key === 'name') {
       return (
         <a
