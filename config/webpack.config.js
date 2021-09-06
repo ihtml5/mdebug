@@ -201,7 +201,9 @@ module.exports = function(webpackEnv) {
             output: {
               ecma: 5,
               comments: false,
-              preamble: `// v${pkg.version} ${new Date()} by Mdebug Team. Released under the MIT License.`,
+              preamble: `// v${
+                pkg.version
+              } ${new Date()} by Mdebug Team. Released under the MIT License.`,
               // Turned on because emoji and regex is not minified properly using default
               // https://github.com/facebook/create-react-app/issues/2488
               ascii_only: true,

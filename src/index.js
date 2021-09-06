@@ -10,14 +10,11 @@ import { init as polyfillInit } from './polyfill';
 import './index.css';
 import store from './store';
 
-const loadScript = require('load-script');
 const { on, trigger: emit } = emitter;
 
 let ready = false;
 const init = (options = {}) => {
   if (!ready) {
-    loadScript('https://unpkg.com/browse/react-devtools-inline@4.0.5/dist/frontend.js');
-    loadScript('https://unpkg.com/browse/react-devtools-inline@4.0.5/dist/backend.js');
     // polyfill fetch console etc
     polyfillInit();
     // 创建mdebug节点
