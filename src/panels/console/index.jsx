@@ -6,7 +6,7 @@ import { noop } from '@/utils/shared';
 import MdebugPrinter from '@/components/printer';
 import { change } from '@/utils/console';
 
-const { off, on } = emitter;
+const { off, on, trigger: emit } = emitter;
 
 class Console extends PureComponent {
   constructor(props) {
@@ -21,7 +21,7 @@ class Console extends PureComponent {
       commandKeyWords: '',
     };
     this.updateLog = this.updateLog.bind(this);
-    this.updateUnShiftLog = this.updateUnShiftLog.bind(this);
+    this.updateCommandLog = this.updateCommandLog.bind(this);
     this.onSelectTab = this.onSelectTab.bind(this);
     this.onChange = this.onChange.bind(this);
     this.getSubSelected = this.getSubSelected.bind(this);
@@ -38,8 +38,8 @@ class Console extends PureComponent {
       tabName,
     });
   }
-  updateUnShiftLog() {
-    const { consolelog, commandKeyWords } = this.state;
+  updateCommandLog() {
+    const { commandKeyWords } = this.state;
     if (!commandKeyWords) {
       return;
     }
@@ -49,14 +49,10 @@ class Console extends PureComponent {
     } catch (err) {
       evalValue = commandKeyWords;
     }
-    const data = {
+    emit('console', {
       type: 'info',
       value: [evalValue],
       timestamp: new Date().getTime(),
-    };
-    sessionLog.unshift(data);
-    this.setState({
-      consolelog: [data, ...consolelog],
     });
   }
   updateLog() {
@@ -134,7 +130,7 @@ class Console extends PureComponent {
               </div>
               <div
                 className={styles.mdebugConsoleCommandTag}
-                onClick={this.updateUnShiftLog}
+                onClick={this.updateCommandLog}
                 style={{
                   color: command === 'command' ? '#000' : undefined,
                 }}>

@@ -36,6 +36,15 @@ const proxyConsole = () => {
         fakeConsole[method].apply(window.console, rest);
       };
     });
+
+    // 处理清除函数
+    console.clear = () => {
+      emit('console', {
+        type: 'clear',
+        timestamp: new Date().getTime(),
+      });
+      fakeConsole.clear.apply(window.console);
+    }
 };
 const proxyAjax = () => {
   const fakeAjax = Object.create(null);
