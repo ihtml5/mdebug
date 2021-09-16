@@ -103,7 +103,14 @@ class App extends Component {
     }
     // 绑定监听事件
     on('network', data => addNetworkLog(data));
-    on('console', data => sessionLog.push(data));
+    on('console', data => {
+      const { type } = data;
+      if (type === 'clear') {
+        sessionLog.splice(0, sessionLog.length);
+        return;
+      }
+      sessionLog.push(data)
+    });
     on('addPlugin', plugin => this.updatePlugin(plugin));
     on('removePlugin', pluginId => this.removePlugin(pluginId));
     on('clearproxy', () => {
