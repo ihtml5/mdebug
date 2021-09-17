@@ -32,3 +32,8 @@
 + 增加设置面板,支持动态调整面板高度 [https://github.com/tnfe/mdebug/pull/19](https://github.com/tnfe/mdebug/pull/19)
 + 网络面板增加支持对response格式化 [https://github.com/tnfe/mdebug/pull/21](https://github.com/tnfe/mdebug/pull/21)
 + 发布2.0.0
+
+# 2021.9.17
+
++ 新增console.clear [https://github.com/tnfe/mdebug/pull/26](https://github.com/tnfe/mdebug/pull/26)
++ 发布2.0.2
