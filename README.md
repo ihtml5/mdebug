@@ -28,7 +28,7 @@
 
 ## 一、快速体验
 
-https://tnfe.github.io/mdebug
+https://ihtml5.github.io/mdebug
 
 ![image](https://user-images.githubusercontent.com/6822604/131059931-7efb7494-82fe-4a27-bd79-ed2bd9ce2c11.png)
 
