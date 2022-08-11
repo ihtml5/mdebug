@@ -51,12 +51,17 @@ const proxyAjax = () => {
   let ajaxSendTime = new Date().getTime();
   let ajaxStartTime = null;
   let ajaxResponseTime = null;
-  const handleEvent = function(event, isErrFlag) {
+  const handleEvent = function(event, isErrFlag,request) {
+    console.log("nameMMMMMMMMMMMMMMMMMMMM",event)
+    console.log("nameMMMMMMMMMMMMMMMMMMMM",isErrFlag)
+    console.log("nameMMMMMMMMMMMMMMMMMMMM",request)
     ajaxResponseTime = new Date().getTime();
     try {
       // 修改获取ajax reponseUrl逻辑
       const curTarget = event && (event.currentTarget || event.target);
       const curAjaxUrl = curTarget.mdebugAjaxURL;
+      const curMethods = curTarget.mdebugMethods;
+      const QueryString = curTarget.QueryString || {};
       const curAajxSendTime = curTarget.mdebugAjaxSendTime || ajaxSendTime;
       const headers = event.headers || {};
       let currentStatus = '';
@@ -72,6 +77,9 @@ const proxyAjax = () => {
           delay: Math.round(Math.max(ajaxResponseTime - curAajxSendTime, 0)),
           httpcode: 'timeout',
           starttime: ajaxStartTime,
+          request:request,
+          method:curMethods,
+          QueryString,
           headers,
           response: curResponseText,
           initiatorType: 'xhr',
@@ -79,36 +87,41 @@ const proxyAjax = () => {
         });
         emit('console', {
           type: 'error',
-          value: [
-            {
-              err_msg: 'ajax请求错误',
-              err_stack: `错误码:${currentStatus}`,
-              level: 'error',
-              err_type: 'xhr',
-              err_code: currentStatus,
-              err_desc: JSON.stringify({
-                fileName: cgiurl,
-                category: 'xhr',
-                text: 'xhr request timeout',
-                status: currentStatus,
-              }),
-              headers,
-            },
-          ],
+          value: [{
+            err_msg: 'ajax请求错误',
+            err_stack: `错误码:${currentStatus}`,
+            level: 'error',
+            err_type: 'xhr',
+            err_code: currentStatus,
+            err_desc: JSON.stringify({
+              fileName: cgiurl,
+              request:request,
+              method:curMethods,
+              QueryString,
+              category: 'xhr',
+              text: 'xhr request timeout',
+              status: currentStatus,
+            }),
+            headers,
+          }],
           timestamp: new Date().getTime(),
         });
         return;
       }
       try {
+        
         emit('network', {
-          name: cgiurl,
-          delay: Math.round(Math.max(ajaxResponseTime - curAajxSendTime, 0)),
-          httpcode: currentStatus,
-          starttime: ajaxStartTime,
-          headers,
-          response: curResponseText,
-          initiatorType: 'xhr',
-          type: 'xhr',
+            name: cgiurl,
+            delay: Math.round(Math.max(ajaxResponseTime - curAajxSendTime, 0)),
+            httpcode: currentStatus,
+            starttime: ajaxStartTime,
+            request:request,
+            method:curMethods,
+            QueryString,
+            headers,
+            response: curResponseText,
+            initiatorType: 'xhr',
+            type: 'xhr',
         });
       } catch (err) {
         console.warn(err);
@@ -116,22 +129,23 @@ const proxyAjax = () => {
       if (typeof currentStatus === 'number' && (currentStatus < 200 || currentStatus >= 300)) {
         emit('console', {
           type: 'error',
-          value: [
-            {
-              err_msg: 'ajax请求错误',
-              err_stack: `错误码:${currentStatus}`,
-              level: 'error',
-              err_type: 'ajax',
-              err_code: currentStatus,
-              err_desc: JSON.stringify({
-                fileName: cgiurl,
-                category: 'ajax',
-                text: curTarget.statusText,
-                status: currentStatus,
-              }),
-              headers,
-            },
-          ],
+          value: [{
+            err_msg: 'ajax请求错误',
+            err_stack: `错误码:${currentStatus}`,
+            level: 'error',
+            err_type: 'ajax',
+            err_code: currentStatus,
+            err_desc: JSON.stringify({
+              fileName: cgiurl,
+              request:request,
+              method:curMethods,
+              QueryString,
+              category: 'ajax',
+              text: curTarget.statusText,
+              status: currentStatus,
+            }),
+            headers,
+          }],
           timestamp: new Date().getTime(),
         });
       }
@@ -143,18 +157,51 @@ const proxyAjax = () => {
   fakeAjax.open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function(method, url, boolean = true) {
     // proxy url
+    console.log("argumentssssssssssssssssssssssssssssss", arguments)
     const proxyUrl = proxyLink(url);
     fakeAjax.open.apply(this, [method, proxyUrl || url, boolean]);
     this.mdebugAjaxURL = proxyUrl || url;
+    this.mdebugMethods = method;
+    if(method==="GET"){
+      try {
+        const path = url.split('?')[1];
+        if(!path || !path.length){
+          this.QueryString  = ""
+          return
+        } 
+        const urlres= path.replace(/&/g, '","').replace(/=/g, '":"');
+        const reqDataString = '{"' + urlres + '"}';
+        this.QueryString  = JSON.parse(reqDataString);
+      } catch (error) {
+        this.QueryString  = ""
+      }
+    }
   };
   XMLHttpRequest.prototype.send = function(data) {
+    console.log("sendDDDDDDDDDDDDDDDDDDDDDDDDDDDDD", arguments)
     ajaxStartTime = new Date().getTime();
     ajaxSendTime = new Date().getTime();
     this.mdebugAjaxSendTime = ajaxSendTime;
     const { onloadend, ontimeout } = this;
+    let requestObj = {}
+    if(arguments[0] && typeof arguments[0] === 'string'){
+      try {
+        requestObj = JSON.parse(arguments[0])
+      } catch (error) {
+        let request = [...arguments][0].split("&")
+          request.forEach(item => {
+            requestObj[item.split("=")[0]] = item.split("=")[1]
+          })
+      }
+    }
+    if( Object.prototype.toString.call(arguments[0]) === '[object FormData]'){
+      requestObj = "file"
+    }
     this.onloadend = function(event) {
+      console.log("eventtttttttttttttTTTTTTTTTTTTTT", event)
+      console.log("sendDDrequestDDDDDDD", requestObj)
       const headerMap = getAjaxHeaders(this);
-      handleEvent(Object.assign(event, { headers: headerMap }));
+      handleEvent(Object.assign(event, { headers: headerMap }),"success",requestObj);
 
       if (typeof onloadend === 'function') {
         onloadend.apply(this, arguments);

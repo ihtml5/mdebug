@@ -234,11 +234,16 @@ mdebug.emit(eventName, data);
   <script src="https://sinaimg.cn/mw690/0065AuX8ly1fr47ztrszbj30og1cwdwv.jpg"></script>
   <script charset="utf-8">
     window.onload = function () {
-      window.mdebug.init();
+      // window.mdebug.init();
       console.log('111');
       console.warn('111');
       $.ajax({
-        url: '/xx/mdebug',
+        url: 'https://ug.baidu.com/mcp/pc/pcsearch?username=2123&password=2123',
+        method:"put",
+        data:{
+          name:"aaa",
+          age:"180"
+        }
       }).done(function (data) {
         console.warn('data:::', data);
       });

@@ -94,8 +94,16 @@ div.mdebugNetWorkFixed {
     background-color: #eee;
     padding: 3px 5px;
 }
+.mdebugNetworkSpan {
+    width: 30%;
+    font-size: 12px;
+    height: 24px;
+    border-right: 1px solid #eee;
+    font-weight: 700;
+    display: inline-block;
+}
 .mdebugNetworkInput {
-    width: 100%;
+    width: 70%;
     font-size: 12px;
     height: 24px;
     border: none;

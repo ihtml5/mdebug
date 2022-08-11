@@ -8,6 +8,7 @@ import { change } from '@/utils/console';
 import { fixLink } from '@/utils/url';
 import { jsonParse } from '@/utils';
 import { Inspector } from 'react-inspector';
+import { clearNetworkLog } from '@/utils/network';
 
 const { on, off } = emitter;
 
@@ -69,7 +70,7 @@ class NetWork extends PureComponent {
         value: `${new Date(Number(value))}`,
       };
     }
-    if (name === 'headers') {
+    if (name === 'headers' || name === 'request' || name === 'QueryString') {
       return {
         name,
         value: <Inspector data={value} style={{ display: 'block' }} />,
@@ -134,6 +135,7 @@ class NetWork extends PureComponent {
         <ul className={styles.mdebugNetWorkHeaderWrap}>
           <li className={styles.mdebugInputWrap}>
             <div className={styles.mdbugNetworkInputWrap}>
+            <span  className={styles.mdebugNetworkSpan}  onClick={() =>{clearNetworkLog();this.updateLog()}}>ClearAll</span>
               <input
                 type="text"
                 placeholder="filter network"
@@ -177,6 +179,7 @@ class NetWork extends PureComponent {
               )
               .map((nw, index) => {
                 const { name, httpcode, initiatorType, delay, type, messages = [], wsClosed } = nw;
+                console.log("NWWWWWWWWWWWWWWWWWWWWWWAAAAAAAAAA",nw)
                 const isCurShow = currentShow === `${index}1`;
                 const formatterName = fixLink(name);
                 return (

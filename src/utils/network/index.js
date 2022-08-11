@@ -28,4 +28,8 @@ export const addNetworkLog = data => {
   } else {
     networkLog.push(data);
   }
-};
+}
+export const clearNetworkLog = () => {
+  console.log("networkLogGGGGGGGGGGGGGGGGGGG",networkLog)
+  networkLog.splice(0, networkLog.length)
+}
