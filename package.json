@@ -1,6 +1,6 @@
 {
-  "name": "mdebug",
-  "version": "2.0.2",
+  "name": "ttdebug",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",

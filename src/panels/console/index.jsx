@@ -97,6 +97,9 @@ class Console extends PureComponent {
       <div className={styles.mdebugConsoleCon}>
         <div className={styles.mdebugFixeHeader}>
           <ul className={styles.mdebugConsoleHeader}>
+          <li onClick={() => {sessionLog.splice(0,sessionLog.length);this.setState({
+            consolelog: []
+        });}}>clearAll</li>
             {Object.keys(CONSOLEMAPPING).map(tabName => (
               <li
                 className={this.getSubSelected(tabName)}

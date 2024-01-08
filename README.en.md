@@ -143,7 +143,7 @@ mdebug.emit(eventName, data);
 
 
 ## development
-
+node v1
 1. npm i
 2. npm start
 3. npm run build 

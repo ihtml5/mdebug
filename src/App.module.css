@@ -13,8 +13,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  max-height: 100%;
-  min-height: 300px;
+  min-height: 85%;
   height: 40%;
   z-index: 10002;
   font-size: 13px;
@@ -95,7 +94,7 @@
   display: block;
   position: fixed;
   right: 0.76923077em;
-  bottom: 0.76923077em;
+  bottom: 50vh;
   color: #fff;
   background-color: rgb(40, 131, 233);
   line-height: 1;
