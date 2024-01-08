@@ -29,7 +29,15 @@ export const addNetworkLog = data => {
     networkLog.push(data);
   }
 }
-export const clearNetworkLog = () => {
-  console.log("networkLogGGGGGGGGGGGGGGGGGGG",networkLog)
-  networkLog.splice(0, networkLog.length)
+export const clearNetworkLog = (tabName) => {
+  console.log("networktabName",tabName)
+  if(tabName=='all'){
+    networkLog.splice(0, networkLog.length)
+  }else{
+    for (let i = networkLog.length - 1; i >= 0; i--) {
+      if (networkLog[i].type==tabName) {
+        networkLog.splice(i, 1);
+      }
+    }
+  }
 }

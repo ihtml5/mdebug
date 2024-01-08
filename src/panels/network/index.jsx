@@ -16,7 +16,7 @@ class NetWork extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      tabName: 'all',
+      tabName: 'xhr',
       network: [...networkLog],
       loading: true,
     };
@@ -127,15 +127,15 @@ class NetWork extends PureComponent {
     const { keywords = {} } = this.props;
     const { network: networkWords } = keywords;
     const { currentShow, network, loading, tabName } = this.state;
-    const NETWORKTAGS = Array.from(new Set(network.map(tag => tag.type)));
-    NETWORKTAGS.unshift('all');
+    const NETWORKTAGS = ['all','xhr','img','script','link']
+
     const networkData = network.filter(net => net.type === tabName || tabName === 'all');
     return (
       <div className={styles.mdebugNetWorkCon}>
         <ul className={styles.mdebugNetWorkHeaderWrap}>
           <li className={styles.mdebugInputWrap}>
             <div className={styles.mdbugNetworkInputWrap}>
-            <span  className={styles.mdebugNetworkSpan}  onClick={() =>{clearNetworkLog();this.updateLog()}}>ClearAll</span>
+            <span  className={styles.mdebugNetworkSpan}  onClick={() =>{clearNetworkLog(tabName);this.updateLog()}}>ClearAll</span>
               <input
                 type="text"
                 placeholder="filter network"

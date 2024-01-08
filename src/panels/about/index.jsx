@@ -9,11 +9,11 @@ class About extends PureComponent {
   render() {
     return (
       <div className={styles.mdebugAbout}>
-        <h3>Mdebug by Tencent News TNT Web Team</h3>
+        <h3>ttdebug by scen Web Team</h3>
         <p>
-          author: <a href="https://github.com/ihtml5">云峰</a>
+          author: a big hero
         </p>
-        <p>version: 2.0.1</p>
+        <p>version: 1.0.2</p>
       </div>
     );
   }

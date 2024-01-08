@@ -51,6 +51,7 @@ const proxyAjax = () => {
   let ajaxSendTime = new Date().getTime();
   let ajaxStartTime = null;
   let ajaxResponseTime = null;
+  console.log('truenproxyAjax',XMLHttpRequest)
   const handleEvent = function(event, isErrFlag,request) {
     console.log("nameMMMMMMMMMMMMMMMMMMMM",event)
     console.log("nameMMMMMMMMMMMMMMMMMMMM",isErrFlag)
